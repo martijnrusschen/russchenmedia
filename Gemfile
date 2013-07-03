@@ -20,6 +20,7 @@ end
 group :development do
   gem 'thin', require: false
   gem 'foreman', require: false
+  gem 'annotate', ">=2.5.0", require: false
 end
 
 group :development, :test do
