@@ -47,3 +47,7 @@ group :development do
   gem 'thin', require: false
   gem 'foreman', require: false
 end
+
+group :development, :test do
+  gem 'rspec-rails', '~> 2.0'
+end
