@@ -9,3 +9,5 @@ Beleef het avontuur mee van 1 vrouw en drie mannen met 1 doel: FINISHEN!",
 Project.create  title: "The Making Of - Double Exposure: Canon vs. Nikon",
                 description: "Double Exposure: Canon vs. Nikon is een resultaat van een project dat begon met het idee om een gave video te maken met de kracht van de Tweakers.net community. Na maanden van hard werken is de video op dinsdag 13 december in premiere gegaan. Binnen een week leverde dit meer dan een half miljoen kijkers op. Een resultaat waar we erg trots op zijn. In deze video geven we jullie een kijkje achter de schermen.",
                 youtube_id: "eoUhtW_m2u4"
+
+User.create!({:email => "martijn@factlink.com", :password => "123hoi", :password_confirmation => "123hoi" })
