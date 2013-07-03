@@ -43,5 +43,7 @@ end
 
 # Use debugger
 # gem 'debugger', group: [:development, :test]
-
-gem 'thin'
+group :development do
+  gem 'thin'
+  gem 'foreman'
+end
