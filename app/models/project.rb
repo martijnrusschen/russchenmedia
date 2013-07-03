@@ -11,4 +11,5 @@
 #
 
 class Project < ActiveRecord::Base
+  has_one :subject, polymorphic: true
 end
