@@ -4,4 +4,5 @@ Russchenmedia::Application.routes.draw do
   root 'home#index'
 
   resources :projects, only: [:index, :show]
+  resources :posts, only: [:index, :show]
 end
