@@ -1,19 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>Russchenmedia</title>
-  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
-  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
-<div>
-  <%= link_to 'Home', root_path %>
-  <%= link_to "About", page_path("about") %>
-  <%= link_to 'Projects', projects_path %>
-</div>
+<!DOCTYPE HTML>
+<html lang="nl">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="apple-mobile-web-app-title" content="Project" />
+    <meta name="msapplication-TileImage" content="windows-icon.png" />
+    <meta name="msapplication-TileColor" content="#4fca96" />
 
-<%= yield %>
+    <title>Russchen Media</title>
+    <meta name="description" content="" />
+    <meta name="author" content="Russchen Media, www.russchenmedia.nl" />
 
-</body>
+    <!--[if lt IE 9]><script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+
+    <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= csrf_meta_tags %>
+
+    <link rel="shortcut icon" href="favicon.ico" />
+    <link rel="apple-touch-icon-precomposed" href="apple-icon.png" />
+  </head>
+
+  <body>
+    <div class="container">
+      <%= link_to 'Home', root_path %>
+      <%= link_to "About", page_path("about") %>
+      <%= link_to 'Projects', projects_path %>
+
+      <%= yield %>
+    </div>
+
+    
+  </body>
 </html>
