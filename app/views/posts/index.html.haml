@@ -1,0 +1,8 @@
+%h2 Nieuws
+
+%ul
+  - @posts.each do | post |
+    %li
+      = link_to post.title, post
+      %br
+      =post.text
