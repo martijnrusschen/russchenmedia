@@ -2,8 +2,12 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'rails_admin'
+gem "devise"
 
 gem 'sqlite3'
+
+gem 'capistrano'
+gem 'capistrano-ext'
 
 gem 'sass-rails', '~> 4.0.0'
 gem 'uglifier', '>= 1.3.0'
@@ -28,6 +32,3 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
-
-
-gem "devise"
