@@ -23,16 +23,27 @@
 
   <body>
     <div class="container">
-      <ul>
-        <li><%= link_to 'Home', root_path %></li>
-        <li><%= link_to "About", page_path("about") %></li>
-        <li><%= link_to 'Projects', projects_path %></li>
-        <li><%= link_to 'Nieuws', posts_path %></li>
-      </ul>
-      
-      <%= yield %>
+      <div class="header">
+        <div class="logo"></div>
+        <div class="navigation">
+          <ul>
+            <li><%= link_to 'Home', root_path %></li>
+            <li><%= link_to "About", page_path("about") %></li>
+            <li><%= link_to 'Projects', projects_path %></li>
+            <li><%= link_to 'Nieuws', posts_path %></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="content">
+        <%= yield %>
+      </div>
+
+      <div class="footer">
+        Footer
+      </div>
     </div>
 
-    
+
   </body>
 </html>
