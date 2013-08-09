@@ -1,0 +1,13 @@
+@import "core/mixins";
+@import "core/settings";
+
+.front-photo {
+  height: 400px;
+  width: 100%;
+  background: image-url('http://htmlstream.com/unify/assets/plugins/parallax-slider/img/bg.jpg');
+  margin-top: 100px;
+}
+
+.content-frontpage {
+
+}
