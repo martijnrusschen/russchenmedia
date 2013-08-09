@@ -1,0 +1,20 @@
+!!! 5
+
+%html{:lang => "nl"}
+  %head
+    = render "shared/head"
+
+  %body
+    = render "shared/menu"
+
+    %div{class: "front-photo"}
+      %div{class: "front-project"}
+        %section{class: "l-half"}
+          %h2 the hARz 2013: Hard Days Night
+        %section{class: "l-half"}
+          %p plaatje
+
+    %div{class: "container"}
+      = yield
+
+    = render "shared/footer"
