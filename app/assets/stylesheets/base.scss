@@ -45,6 +45,13 @@ body {
   }
 }
 
+div.container {
+    @include clearfix;
+    max-width: $max-width;
+    margin: auto;
+    padding: 1.5em;
+}
+
 .footer {
   background: #585f69;
 
