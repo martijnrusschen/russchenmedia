@@ -22,22 +22,13 @@
   </head>
 
   <body>
-      <div class="header">
-        <div class="logo"></div>
-        <div class="navigation">
-          <ul>
-            <li><%= link_to 'Home', root_path %></li>
-            <li><%= link_to "About", page_path("about") %></li>
-            <li><%= link_to 'Projects', projects_path %></li>
-            <li><%= link_to 'Nieuws', posts_path %></li>
-          </ul>
-        </div>
-      </div>
+      <%= render "shared/menu" %>
+
       <div class="container">
         <%= yield %>
       </div>
-    <div class="footer">
-        <div class="footer-content">Footer</div>
-    </div>
+      <div class="footer">
+          <div class="footer-content">Footer</div>
+      </div>
   </body>
 </html>
