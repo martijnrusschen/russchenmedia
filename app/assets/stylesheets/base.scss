@@ -5,6 +5,44 @@ body {
   background: $white;
 }
 
+.header {
+  margin: 0 auto;
+  width: $max-width;
+  height: 50px;
+  margin-top: 20px;
+
+  .logo {
+    background: image-url('header/logo.png') no-repeat;
+    height: 60px;
+    width: 371px;
+    float: left;
+  }
+
+  .navigation {
+    float: right;
+    width: 500px;
+    height: 23px;
+    margin: 15px 0 0 0;
+    padding:0;
+    text-align:center;
+
+    ul {
+      list-style: none;
+      width: 100%;
+    }
+
+    li {
+      display: inline;
+    }
+
+    a {
+      padding:10px;
+
+      &:hover {
+        border-bottom: solid 1px $baseBorderColor;
+      }
+    }
+  }
 }
 
 .footer {
