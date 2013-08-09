@@ -11,3 +11,11 @@ body {
   margin-top: 100px;
   padding: 20px;
 }
+
+.footer {
+  background: #585f69;
+
+  &.footer-content{
+    width: $max-width;
+  }
+}
