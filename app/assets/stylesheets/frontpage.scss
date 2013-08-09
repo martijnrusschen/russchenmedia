@@ -5,7 +5,27 @@
   height: 400px;
   width: 100%;
   background: image-url('http://htmlstream.com/unify/assets/plugins/parallax-slider/img/bg.jpg');
-  margin-top: 100px;
+  margin-top: 50px;
+
+  .front-project {
+    width: $max-width;
+    margin: 0 auto;
+    height: 400px;
+
+    section {
+      height: 100%;
+      vertical-align: center;
+
+      h2 {
+        text-transform: uppercase;
+        color: $white;
+
+        background: image-url("header/bg-heading.png");
+        display: inline;
+        padding: 3px;
+      }
+    }
+  }
 }
 
 .key-points {
