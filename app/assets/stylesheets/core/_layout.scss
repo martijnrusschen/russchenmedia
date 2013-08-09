@@ -29,10 +29,3 @@ div.container {
     padding: 1.5em;
 }
 
-// Example for modules.html
-header { @include grid(48, 1); }
-section {
-    @include clearfix;
-    margin-bottom: $vertical-spacing;
-    @include grid(48, 1);
-}
