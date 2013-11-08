@@ -7,13 +7,16 @@ table class="project-details"
       = @project.title
   tr
     th Opdrachtgever
-    td HEnk
+    td
+      = @project.client
   tr
     th Werk
-    td dingen
+    td
+      = @project.tasks
   tr
     th Jaar
-    td 2013
+    td
+      = @project.year
 
 .project-description
   = @project.description
