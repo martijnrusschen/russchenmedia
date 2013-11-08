@@ -10,7 +10,6 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'slim-rails'
-gem 'haml' # Remove when migrated to slim
 
 gem 'turbolinks'
 
