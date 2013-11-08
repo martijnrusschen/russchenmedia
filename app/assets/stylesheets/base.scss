@@ -1,0 +1,20 @@
+html, body {
+  height: 100%;
+}
+
+html {
+ overflow-y: scroll;
+}
+
+body {
+  font-family: Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
+  background: white;
+  margin: 0;
+  line-height:1.25;
+  color: #333;
+}
+
+input, button, select {
+  font-family:inherit;
+  margin:0;
+}
