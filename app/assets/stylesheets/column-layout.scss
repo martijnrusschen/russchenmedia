@@ -1,0 +1,19 @@
+.container {
+  overflow:hidden;  //cuts off the padding
+  min-height: 100%;
+}
+
+.content-column {
+  max-width: 962px;
+  background: white;
+  text-align:center;
+  margin:auto;
+  border-top: 1px solid transparent;
+  padding-bottom:10000px;
+  margin-bottom:-10000px;
+}
+
+.content-region {
+  text-align: center;
+  padding: 0
+}

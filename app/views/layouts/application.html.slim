@@ -1,0 +1,22 @@
+doctype html
+html
+  head
+    title Russchen Media
+    link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = csrf_meta_tags
+  body
+    .container
+      .content-column
+        .header
+          .logo
+          .tagline
+            h1 Russchen Media verzorgt videoproducties.
+            h1 Concept, Productie &amp; Montage.
+        .content-region
+          = yield
+        .footer
+          | Russchen Media, Groningen&nbsp;-&nbsp;
+          = mail_to 'martijn@russchenmedia.nl'
+          | &nbsp;-&nbsp;06 23 883 880
