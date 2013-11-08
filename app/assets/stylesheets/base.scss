@@ -40,3 +40,18 @@ input, button, select {
     font-style: italic;
   }
 }
+
+.footer {
+  border-top: 1px solid #ccc;
+  font-size: 14px;
+  padding-top: 5px;
+
+  a {
+    color: #333;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
