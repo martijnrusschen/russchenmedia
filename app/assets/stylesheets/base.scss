@@ -22,7 +22,15 @@ input, button, select {
   margin:0;
 }
 
+a {
   color: $baseFontColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
 .header {
   text-align: center;
   padding: 30px;
@@ -50,13 +58,4 @@ input, button, select {
   border-top: $baseBorderStyle;
   font-size: 14px;
   padding-top: 5px;
-
-  a {
-    color: #333;
-    text-decoration: none;
-
-    &:hover {
-      text-decoration: underline;
-    }
-  }
 }
