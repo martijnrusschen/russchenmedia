@@ -11,3 +11,22 @@
   font-weight: bold;
   font-family: "Droid Sans";
 }
+
+.youtube-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-spacer {
+  float: left;
+  margin-top: 56.25%;
+}
+
+.youtube-iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}
