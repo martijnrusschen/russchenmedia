@@ -7,7 +7,7 @@ html {
 }
 
 body {
-  font-family: Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
+  font-family: "Droid Serif", Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
   background: white;
   margin: 0;
   line-height:1.25;
@@ -17,4 +17,26 @@ body {
 input, button, select {
   font-family:inherit;
   margin:0;
+}
+
+.header {
+  text-align: center;
+  padding: 30px;
+}
+
+.logo {
+  background: image-url('russchenmedia-logo.png');
+  width: 140px;
+  height: 126px;
+  display: inline-block;
+}
+
+.tagline {
+  margin-top: 30px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    font-style: italic;
+  }
 }
