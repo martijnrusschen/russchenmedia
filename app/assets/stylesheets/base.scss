@@ -13,7 +13,6 @@ body {
   font-family: "Droid Serif", Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
   font-size:16px;
   line-height:1.25;
-  color: #333;
   color: $baseFontColor;
 }
 
@@ -54,7 +53,6 @@ a {
 }
 
 .footer {
-  border-top: 1px solid #ccc;
   border-top: $baseBorderStyle;
   font-size: 14px;
   padding-top: 5px;
