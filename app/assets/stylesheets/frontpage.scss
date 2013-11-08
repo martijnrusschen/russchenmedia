@@ -9,14 +9,9 @@
   margin-top: 50px;
 
   .front-project {
-    @include clearfix;
-    width: $max-width;
-    margin: 0 auto;
-    height: 400px;
-
     section {
-      height: 100%;
-      vertical-align: center;
+
+      //this needs a vertial alignment
 
       h2 {
         text-transform: uppercase;
@@ -26,10 +21,22 @@
         display: inline;
         padding: 3px;
       }
+
+      img {
+        width: 200px;
+        height: 200px;
+      }
     }
   }
 }
 
 .key-points {
   height: 150px;
+}
+
+.clients {
+  img {
+    width: 150px;
+    height: 75px;
+  }
 }

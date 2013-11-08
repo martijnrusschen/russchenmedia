@@ -46,17 +46,25 @@ body {
   }
 }
 
-div.container {
-    @include clearfix;
-    max-width: $max-width;
-    margin: auto;
-    padding: 1.5em;
+.container {
+  @include clearfix;
+  max-width: $max-width;
+  margin: auto;
+  padding: 1.5em;
 }
 
 .footer {
   background: #585f69;
+  width: 100%;
+  height: 200px;
+  padding: 1.5em;
 
-  &.footer-content{
+  position: absolute;
+  bottom: 0px;
+
+  .footer-content{
     width: $max-width;
+    margin: auto;
+    color: $white;
   }
 }
