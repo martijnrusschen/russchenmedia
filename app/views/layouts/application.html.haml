@@ -1,0 +1,12 @@
+!!! 5
+%html{:lang => "nl"}
+  %head
+    = render "shared/head"
+
+  %body
+    = render "shared/menu"
+
+    %div{class: "container"}
+      = yield
+
+    = render "shared/footer"

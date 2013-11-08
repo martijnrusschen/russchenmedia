@@ -1,0 +1,42 @@
+@import "core/mixins";
+@import "core/grid";
+@import "core/settings";
+
+.front-photo {
+  height: 400px;
+  width: 100%;
+  background: image-url('http://htmlstream.com/unify/assets/plugins/parallax-slider/img/bg.jpg');
+  margin-top: 50px;
+
+  .front-project {
+    section {
+
+      //this needs a vertial alignment
+
+      h2 {
+        text-transform: uppercase;
+        color: $white;
+
+        background: image-url("header/bg-heading.png");
+        display: inline;
+        padding: 3px;
+      }
+
+      img {
+        width: 200px;
+        height: 200px;
+      }
+    }
+  }
+}
+
+.key-points {
+  height: 150px;
+}
+
+.clients {
+  img {
+    width: 150px;
+    height: 75px;
+  }
+}

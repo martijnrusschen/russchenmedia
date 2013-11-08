@@ -1,0 +1,12 @@
+%div{class: "header"}
+  %div{class: "logo"}
+  %div{class: "navigation"}
+    %ul
+      %li
+        = link_to 'Home', root_path
+      %li
+        = link_to 'About', page_path('about')
+      %li
+        = link_to 'Projects', projects_path
+      %li
+        = link_to 'Nieuws', posts_path
