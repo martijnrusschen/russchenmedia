@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.0'
 gem 'rails_admin'
+gem 'devise'
 
 gem 'sqlite3'
 
@@ -13,6 +14,7 @@ gem 'slim-rails'
 
 gem 'paperclip'
 gem 'protected_attributes'
+gem 'rails_admin_jcrop'
 
 gem 'turbolinks'
 
@@ -30,6 +32,3 @@ end
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
 end
-
-
-gem "devise"
