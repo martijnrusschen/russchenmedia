@@ -20,4 +20,21 @@
 class Project < ActiveRecord::Base
   attr_accessible :thumbnail
   has_attached_file :thumbnail, :styles => { :medium => "240x135>" }
+
+
+  rails_admin do
+    configure :thumbnail, :jcrop
+
+    field :title do end
+    field :description do end
+    field :youtube_id do end
+    field :client do end
+    field :tasks do end
+    field :year do end
+
+    field :thumbnail do
+      fit_image true
+      jcrop_options aspectRatio: 16.0/9.0
+    end
+  end
 end
