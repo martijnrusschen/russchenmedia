@@ -12,6 +12,7 @@ gem 'jquery-rails'
 gem 'slim-rails'
 
 gem 'paperclip'
+gem 'protected_attributes'
 
 gem 'turbolinks'
 
