@@ -1,11 +1,9 @@
 class AddAttachmentThumbnailToProjects < ActiveRecord::Migration
   def self.up
-    change_table :projects do |t|
-      t.attachment :thumbnail
-    end
+    add_attachment :projects, :thumbnail
   end
 
   def self.down
-    drop_attached_file :projects, :thumbnail
+    remove_attachment :projects, :thumbnail
   end
 end
