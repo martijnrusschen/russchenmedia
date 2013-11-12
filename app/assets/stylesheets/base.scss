@@ -1,0 +1,59 @@
+html, body {
+  min-height: 100%;
+}
+
+html {
+ overflow-y: scroll;
+}
+
+body {
+  background: white;
+  margin: 0;
+
+  font-family: "Droid Serif", Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
+  font-size:16px;
+  line-height:1.25;
+  color: $baseFontColor;
+}
+
+input, button, select {
+  font-family:inherit;
+  margin:0;
+}
+
+a {
+  color: $baseFontColor;
+  text-decoration: none;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+.header {
+  text-align: center;
+  padding: 30px;
+}
+
+.logo {
+  background: image-url('russchenmedia-logo.png');
+  width: 140px;
+  height: 126px;
+  display: inline-block;
+}
+
+.tagline {
+  margin-top: 30px;
+
+  h1 {
+    font-size: 24px;
+    font-weight: normal;
+    font-style: italic;
+  }
+}
+
+.footer {
+  border-top: $baseBorderStyle;
+  font-size: 14px;
+  padding-top: 5px;
+}

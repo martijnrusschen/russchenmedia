@@ -1,0 +1,53 @@
+.project-details {
+  margin-top: 20px;
+  text-align: left;
+  border-collapse:collapse;
+
+  tr {
+    border-top: $baseBorderStyle;
+  }
+
+  th {
+    text-transform: uppercase;
+    font-family: "Droid Sans";
+    padding: 5px 20px 5px 0;
+    border-right: $baseBorderStyle;
+  }
+
+  td {
+    padding: 5px 0 5px 10px;
+  }
+}
+
+.project-description {
+  border-top: $baseBorderStyle;
+  border-bottom: $baseBorderStyle;
+  text-align: left;
+  padding: 10px 0 10px 0;
+}
+
+.project-others {
+  text-align: left;
+  text-transform: uppercase;
+  font-weight: bold;
+  font-family: "Droid Sans";
+}
+
+.youtube-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+}
+
+.youtube-spacer {
+  float: left;
+  margin-top: 56.25%;
+}
+
+.youtube-iframe {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  left: 0;
+  top: 0;
+}

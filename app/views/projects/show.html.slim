@@ -1,0 +1,24 @@
+= render 'youtube_video', youtube_id: @project.youtube_id
+
+table class="project-details"
+  tr
+    th Titel
+    td
+      = @project.title
+  tr
+    th Opdrachtgever
+    td
+      = @project.client
+  tr
+    th Werk
+    td
+      = @project.tasks
+  tr
+    th Jaar
+    td
+      = @project.year
+
+.project-description
+  = @project.description
+
+p class="project-others" Bekijk de andere projecten van Russchen Media
