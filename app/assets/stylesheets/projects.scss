@@ -51,3 +51,14 @@
   left: 0;
   top: 0;
 }
+
+.thumbnail-list {
+  list-style: none;
+  display: inline-block;
+}
+
+.thumbnail {
+  float: left;
+  width: 240px;
+  height: 135px;
+}
