@@ -11,6 +11,8 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jquery-rails'
 gem 'slim-rails'
 
+gem 'paperclip'
+
 gem 'turbolinks'
 
 group :doc do
