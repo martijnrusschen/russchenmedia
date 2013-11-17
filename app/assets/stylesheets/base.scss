@@ -36,7 +36,6 @@ a {
 }
 
 .logo {
-  background: image-url('russchenmedia-logo.png');
   width: 140px;
   height: 126px;
   display: inline-block;
@@ -56,4 +55,5 @@ a {
   border-top: $baseBorderStyle;
   font-size: 14px;
   padding-top: 5px;
+  padding-bottom: 20px;
 }
