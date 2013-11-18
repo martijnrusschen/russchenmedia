@@ -35,12 +35,13 @@
 
 .youtube-container {
   position: relative;
-  overflow: hidden;
   width: 100%;
-}
 
-.youtube-spacer {
-  padding-top: 56.25%;
+  &:before {
+    padding-top: 56.25%;
+    display: block;
+    content: ''
+  }
 }
 
 .youtube-iframe {
