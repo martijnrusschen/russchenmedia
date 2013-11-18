@@ -57,7 +57,30 @@
 }
 
 .thumbnail {
+  position: relative;
   float: left;
   width: 240px;
   height: 135px;
+
+  &:hover {
+    .project-overlay { display: block; }
+  }
 }
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+
+  color: white;
+  font-size: 200%;
+
+  .icon-play {
+    margin-top: 20%;
+  }
+}
+
