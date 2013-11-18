@@ -1,5 +1,5 @@
 <ul class="thumbnail-list">
-  <% @projects.each do | project | %>
+  <% @other_projects.each do | project | %>
     <li class="thumbnail">
       <%= link_to project do %>
         <%= image_tag(project.thumbnail.url(:medium)) %>
