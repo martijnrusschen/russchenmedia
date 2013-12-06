@@ -11,8 +11,8 @@ body {
   margin: 0;
 
   font-family: "Droid Serif", Helvetica, Lucida, "Segoe UI", Calibri, Verdana, Arial, sans-serif;
-  font-size:16px;
-  line-height:1.25;
+  font-size:1em;
+  line-height:1.5em;
   color: $baseFontColor;
 }
 
@@ -45,7 +45,8 @@ a {
   margin-top: 30px;
 
   h1 {
-    font-size: 24px;
+    font-size: 1.5em;
+    line-height: 1.25em;
     font-weight: normal;
     font-style: italic;
   }
@@ -53,7 +54,7 @@ a {
 
 .footer {
   border-top: $baseBorderStyle;
-  font-size: 14px;
+  font-size: 1em;
   margin-top: 20px;
   padding-top: 5px;
   padding-bottom: 20px;
