@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gem 'rails', '4.0.2'
 gem 'rails_admin'
-gem "devise"
+gem 'devise'
 
 gem 'sqlite3'
 
