@@ -1,4 +1,4 @@
-# RailsAdmin config file. Generated on July 03, 2013 22:07
+# RailsAdmin config file. Generated on December 27, 2013 15:56
 # See github.com/sferik/rails_admin for more informations
 
 RailsAdmin.config do |config|
@@ -64,12 +64,13 @@ RailsAdmin.config do |config|
 
   #   # Found columns:
 
-  #     configure :id, :integer 
   #     configure :title, :string 
   #     configure :description, :text 
   #     configure :youtube_id, :string 
-  #     configure :created_at, :datetime 
-  #     configure :updated_at, :datetime 
+  #     configure :client, :string 
+  #     configure :tasks, :string 
+  #     configure :year, :integer 
+  #     configure :thumbnail, :jcrop 
 
   #   # Cross-section configuration:
 
