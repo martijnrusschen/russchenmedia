@@ -1,6 +1,6 @@
 class AddAttachmentThumbnailToProjects < ActiveRecord::Migration
   def self.up
-    add_attachment :projects, :thumbnail
+    puts "old migration"
   end
 
   def self.down
