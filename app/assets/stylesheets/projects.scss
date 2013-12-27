@@ -35,13 +35,13 @@
 
 .youtube-container {
   position: relative;
-  overflow: hidden;
   width: 100%;
-}
 
-.youtube-spacer {
-  float: left;
-  margin-top: 56.25%;
+  &:before {
+    padding-top: 56.25%;
+    display: block;
+    content: ''
+  }
 }
 
 .youtube-iframe {
@@ -51,3 +51,39 @@
   left: 0;
   top: 0;
 }
+
+.thumbnail-list {
+  list-style: none;
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.thumbnail {
+  position: relative;
+  width: 240px;
+  height: 135px;
+  display: inline-block;
+
+  &:hover {
+    .project-overlay { display: block; }
+  }
+}
+
+.project-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: none;
+  background-color: rgba(0, 0, 0, 0.6);
+  width: 100%;
+  height: 100%;
+
+  color: white;
+  font-size: 200%;
+
+  .icon-play {
+    margin-top: 20%;
+  }
+}
+
