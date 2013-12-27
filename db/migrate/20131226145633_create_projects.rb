@@ -6,7 +6,7 @@ class CreateProjects < ActiveRecord::Migration
       t.string :youtube_id
       t.string :client
       t.string :tasks
-      t.interger :year
+      t.integer :year
 
       t.timestamps
     end
