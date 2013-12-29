@@ -21,16 +21,6 @@ class Project < ActiveRecord::Base
   attr_accessible :thumbnail
   has_attached_file :thumbnail, :styles => { :medium => "240x135>" }
 
-
-  # rails_admin do
-  #   configure :thumbnail, :jcrop
-
-  #   field :thumbnail do
-  #     fit_image true
-  #     jcrop_options aspectRatio: 16.0/9.0
-  #   end
-  # end
-
   def self.all_except_current(project_id)
     where.not(id: project_id)
   end
