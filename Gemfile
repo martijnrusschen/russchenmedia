@@ -15,7 +15,7 @@ gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails'
 gem 'slim-rails'
 
-gem 'paperclip'
+gem 'paperclip', '~> 2.7.0'
 gem 'aws-sdk'
 gem 'rails_admin_jcrop'
 
