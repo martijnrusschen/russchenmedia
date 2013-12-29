@@ -23,4 +23,8 @@ class Project < ActiveRecord::Base
   def self.all_except_current(project_id)
     where.not(id: project_id)
   end
+
+  def to_param
+    "#{id}_#{title.to_param}"
+  end
 end
