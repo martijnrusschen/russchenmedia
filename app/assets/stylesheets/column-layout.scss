@@ -21,6 +21,12 @@
 @media only screen and (max-width: 540px) {
   .content-column {
     max-width: 240px;
+    padding: 0;
+  }
+
+  .thumbnail-list .thumbnail {
+    float: none;
+    margin: 0 auto;
   }
 }
 
