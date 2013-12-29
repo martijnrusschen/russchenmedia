@@ -7,6 +7,7 @@ gem 'rails_admin'
 gem 'devise'
 
 gem 'pg'
+gem 'unicorn'
 
 gem 'sass-rails', '~> 4.0.1'
 gem 'uglifier', '>= 1.3.0'
@@ -25,7 +26,6 @@ group :doc do
 end
 
 group :development do
-  gem 'thin', require: false
   gem 'foreman', require: false
   gem 'annotate', ">=2.5.0", require: false
   gem 'rack-mini-profiler'

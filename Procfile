@@ -1,2 +1,2 @@
 postgresql: postgres -D 'tmp/postgres'
-webserver: bundle exec thin start
+web: bundle exec unicorn -p $PORT -c ./config/unicorn.rb
