@@ -27,7 +27,7 @@ class Project < ActiveRecord::Base
     where.not(id: project_id)
   end
 
-  # def to_param
-  #   "#{id}_#{title.to_param}"
-  # end
+  def to_param
+    [id, title.parameterize].join("-")
+  end
 end
