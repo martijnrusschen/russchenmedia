@@ -11,7 +11,11 @@ html
     meta name="viewport" content="width=device-width, initial-scale=1.0"
 
     - if content_for? :og_tags
-        = yield :og_tags
+      = yield :og_tags
+    - else
+      meta property="og:title" content="Russchen Media"
+      meta property="og:url" content="http://russchenmedia.nl"
+      meta property="og:description" content="Russchen Media verzorgt videoproducties. Concept, Productie & Montage."
 
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     link rel="dns-prefetch" href="//themes.googleusercontent.com"
