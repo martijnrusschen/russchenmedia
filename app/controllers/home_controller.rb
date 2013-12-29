@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @projects = Project.all
+    @projects = Project.order('Year ASC')
   end
 end

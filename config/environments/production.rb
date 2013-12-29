@@ -32,6 +32,7 @@ Russchenmedia::Application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
+  config.static_cache_control = "public, max-age=31536000"
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
@@ -42,6 +43,15 @@ Russchenmedia::Application.configure do
 
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
+
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :bucket => ENV['BUCKET_NAME'],
+    :s3_credentials => {
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
+    }
+  }
 
   # Set to :debug to see everything in the log.
   config.log_level = :info

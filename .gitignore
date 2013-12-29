@@ -17,3 +17,5 @@
 
 # Ignore uploaded files
 public/system/projects/thumbnails/
+
+.env
