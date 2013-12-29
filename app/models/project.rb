@@ -18,7 +18,10 @@
 #
 
 class Project < ActiveRecord::Base
-  has_attached_file :thumbnail, :styles => { :medium => "240x135>" }
+  has_attached_file :thumbnail, :styles => {
+    :medium => "240x135>",
+    :large => "640x360>"
+  }
 
   def self.all_except_current(project_id)
     where.not(id: project_id)
