@@ -28,6 +28,7 @@ group :development do
   gem 'thin', require: false
   gem 'foreman', require: false
   gem 'annotate', ">=2.5.0", require: false
+  gem 'rack-mini-profiler'
 end
 
 group :development, :test do
