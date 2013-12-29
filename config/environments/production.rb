@@ -32,6 +32,7 @@ Russchenmedia::Application.configure do
 
   # Generate digests for assets URLs.
   config.assets.digest = true
+  config.static_cache_control = "public, max-age=31536000"
 
   # Version of your assets, change this if you want to expire all your assets.
   config.assets.version = '1.0'
