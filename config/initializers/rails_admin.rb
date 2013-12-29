@@ -3,7 +3,6 @@
 
 RailsAdmin.config do |config|
 
-
   ################  Global configuration  ################
 
   # Set the admin name here (optional second array element will appear in red). For example:
@@ -60,17 +59,27 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
+  config.model Project do
+    configure :thumbnail, :jcrop
+
+    # Below is optional
+    edit do
+      field :thumbnail do
+        jcrop_options aspectRatio: 16.0/9.0
+      end
+    end
+  end
 
 
   #   # Found columns:
 
-  #     configure :title, :string 
-  #     configure :description, :text 
-  #     configure :youtube_id, :string 
-  #     configure :client, :string 
-  #     configure :tasks, :string 
-  #     configure :year, :integer 
-  #     configure :thumbnail, :jcrop 
+  #     configure :title, :string
+  #     configure :description, :text
+  #     configure :youtube_id, :string
+  #     configure :client, :string
+  #     configure :tasks, :string
+  #     configure :year, :integer
+  #     configure :thumbnail, :jcrop
 
   #   # Cross-section configuration:
 
