@@ -30,4 +30,8 @@ class Project < ActiveRecord::Base
   #     jcrop_options aspectRatio: 16.0/9.0
   #   end
   # end
+
+  def self.all_except_current(project_id)
+    where.not(id: project_id)
+  end
 end

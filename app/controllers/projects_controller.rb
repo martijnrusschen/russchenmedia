@@ -1,12 +1,8 @@
 class ProjectsController < ApplicationController
-  def all_except_current(project_id)
-    where.not(id: project_id)
-  end
-
   def show
     @project = Project.find(params[:id])
-    @other_projects = Project.all_except_current(@project)
+    @other_projects = Project.all_except_current(@project.id)
+                             .limit(5)
                              .order('Year ASC')
-                             .last(5)
   end
 end
