@@ -64,6 +64,7 @@
   width: 240px;
   height: 135px;
   display: inline-block;
+  float: left;
 
   &:hover {
     .project-overlay { display: block; }
