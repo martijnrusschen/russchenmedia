@@ -5,7 +5,6 @@ html
     link href='http://fonts.googleapis.com/css?family=Droid+Sans:400,700|Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'
     meta content="width=(device-width,)initial-scale=1.0" name="viewport"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
-    = javascript_include_tag "application", "data-turbolinks-track" => true
     = csrf_meta_tags
   body
     .container
@@ -23,3 +22,4 @@ html
           | Russchen Media, Groningen&nbsp;-&nbsp;
           = mail_to 'martijn@russchenmedia.nl'
           | &nbsp;-&nbsp;06 23 883 880
+    = javascript_include_tag "application", "data-turbolinks-track" => true
