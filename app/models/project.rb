@@ -18,7 +18,6 @@
 #
 
 class Project < ActiveRecord::Base
-  attr_accessible :thumbnail
   has_attached_file :thumbnail, :styles => { :medium => "240x135>" }
 
   def self.all_except_current(project_id)

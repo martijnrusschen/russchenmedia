@@ -16,7 +16,6 @@ gem 'jquery-rails'
 gem 'slim-rails'
 
 gem 'paperclip'
-gem 'protected_attributes'
 gem 'rails_admin_jcrop'
 
 gem 'turbolinks'
