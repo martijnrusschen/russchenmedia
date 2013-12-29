@@ -29,11 +29,21 @@
     margin: 0 auto;
   }
 
-  .project-description {
+  .content-region .project-description {
     padding: 10px;
   }
 
-  .project-others {
+  .content-region .project-details {
+    th {
+      padding-left: 10px;
+    }
+
+    td {
+      padding-right: 10px;
+    }
+  }
+
+  .content-region .project-others {
     text-align: center;
   }
 }
