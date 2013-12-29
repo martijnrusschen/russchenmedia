@@ -64,22 +64,11 @@ RailsAdmin.config do |config|
 
     # Below is optional
     edit do
-      field :thumbnail do
+      configure :thumbnail do
         jcrop_options aspectRatio: 16.0/9.0
       end
     end
   end
-
-
-  #   # Found columns:
-
-  #     configure :title, :string
-  #     configure :description, :text
-  #     configure :youtube_id, :string
-  #     configure :client, :string
-  #     configure :tasks, :string
-  #     configure :year, :integer
-  #     configure :thumbnail, :jcrop
 
   #   # Cross-section configuration:
 
