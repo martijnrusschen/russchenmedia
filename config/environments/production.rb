@@ -46,10 +46,10 @@ Russchenmedia::Application.configure do
 
   config.paperclip_defaults = {
     :storage => :s3,
+    :bucket => ENV['BUCKET_NAME'],
     :s3_credentials => {
-      :bucket => ENV['russchenmedia'],
-      :access_key_id => ENV['AKIAIYIHBBLMO2KNUJ6A'],
-      :secret_access_key => ENV['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']
+      :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
+      :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
     }
   }
 
