@@ -2,7 +2,7 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     @other_projects = Project.all_except_current(@project.id)
-                             .limit(5)
+                             .limit(4)
                              .order('Year ASC')
   end
 end
