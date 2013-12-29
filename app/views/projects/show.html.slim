@@ -30,5 +30,6 @@ p class="project-others" Bekijk de andere projecten van Russchen Media
 
 - content_for :og_tags do
   meta property="og:title" content="#{@project.title} | Russchen Media"
+  meta property="og:url" content="#{project_path(@project.id)}"
   meta property="og:description" content="#{@project.description}"
   meta property="og:image" content="#{@project.thumbnail.url(:large)}"
