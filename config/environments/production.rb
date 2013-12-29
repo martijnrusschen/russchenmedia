@@ -44,6 +44,15 @@ Russchenmedia::Application.configure do
   # Force all access to the app over SSL, use Strict-Transport-Security, and use secure cookies.
   # config.force_ssl = true
 
+  config.paperclip_defaults = {
+    :storage => :s3,
+    :s3_credentials => {
+      :bucket => ENV['russchenmedia'],
+      :access_key_id => ENV['AKIAIYIHBBLMO2KNUJ6A'],
+      :secret_access_key => ENV['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']
+    }
+  }
+
   # Set to :debug to see everything in the log.
   config.log_level = :info
 
