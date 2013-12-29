@@ -24,3 +24,6 @@ table class="project-details"
 p class="project-others" Bekijk de andere projecten van Russchen Media
 
 = render 'other_projects'
+
+- content_for :page_title do
+  = @project.title + " | Russchen Media"

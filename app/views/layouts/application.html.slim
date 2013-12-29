@@ -1,7 +1,11 @@
 doctype html
 html
   head
-    title Russchen Media
+    title
+      - if content_for? :page_title
+        = yield :page_title
+      - else
+        | Russchen Media
     meta content="width=device-width, initial-scale=1.0" name="viewport"
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     link rel="dns-prefetch" href="//themes.googleusercontent.com"
