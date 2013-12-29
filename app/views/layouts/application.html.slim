@@ -9,6 +9,10 @@ html
     meta name="description" content="Russchen Media verzorgt videoproducties. Concept, Productie & Montage."
     meta name="author" content="Russchen Media"
     meta name="viewport" content="width=device-width, initial-scale=1.0"
+
+    - if content_for? :og_tags
+        = yield :og_tags
+
     = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
     link rel="dns-prefetch" href="//themes.googleusercontent.com"
     link rel="dns-prefetch" href="//fonts.googleapis.com"
