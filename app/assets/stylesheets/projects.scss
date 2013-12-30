@@ -87,3 +87,19 @@
   }
 }
 
+.previous-project, .next-project {
+  width: 50px;
+  height: 200px;
+  position: fixed;
+  top: 50%;
+}
+
+.previous-project {
+  background: asset-data-url('previous-arrow.png');
+  left: 5%;
+}
+
+.next-project {
+  background: asset-data-url('next-arrow.png');
+  right: 5%;
+}

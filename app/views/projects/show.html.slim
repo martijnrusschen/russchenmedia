@@ -25,6 +25,13 @@ p class="project-others" Bekijk de andere projecten van Russchen Media
 
 = render 'other_projects'
 
+- if @project.previous
+  = link_to @project.previous do
+    div.previous-project
+- if @project.next
+  = link_to @project.next do
+    div.next-project
+
 - content_for :page_title do
   = @project.title + " | Russchen Media"
 

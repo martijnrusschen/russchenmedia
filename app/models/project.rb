@@ -30,4 +30,12 @@ class Project < ActiveRecord::Base
   def to_param
     [id, title.parameterize].join("-")
   end
+
+  def previous
+    Project.where(["id < ?", id]).last
+  end
+
+  def next
+    Project.where(["id > ?", id]).first
+  end
 end
