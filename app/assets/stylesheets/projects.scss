@@ -12,10 +12,18 @@
     font-family: "Droid Sans";
     padding: 5px 20px 5px 0;
     border-right: $baseBorderStyle;
+
+    @include respond-to(540) {
+      padding-left: 10px;
+    }
   }
 
   td {
     padding: 5px 0 5px 10px;
+
+    @include respond-to(540) {
+      padding-right: 10px;
+    }
   }
 }
 
@@ -24,6 +32,10 @@
   border-bottom: $baseBorderStyle;
   text-align: left;
   padding: 10px 0 10px 0;
+
+  @include respond-to(540) {
+    padding: 10px;
+  }
 }
 
 .project-others {
@@ -31,6 +43,10 @@
   text-transform: uppercase;
   font-weight: bold;
   font-family: "Droid Sans";
+
+  @include respond-to(540) {
+    text-align: center;
+  }
 }
 
 .youtube-container {
@@ -64,6 +80,11 @@
   width: 240px;
   height: 135px;
   float: left;
+
+  @include respond-to(540) {
+    float: none;
+    margin: 0 auto;
+  }
 
   &:hover {
     .project-overlay {
@@ -101,6 +122,10 @@
   height: 200px;
   position: fixed;
   top: 50%;
+
+  @include respond-to(1300) {
+    display: none;
+  }
 }
 
 .previous-project {
