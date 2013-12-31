@@ -15,4 +15,5 @@ git flow release start "$NEW_VERSION" && \
   git flow release finish "$NEW_VERSION" && \
   git push && \
   git push --tags && \
+  git push heroku master && \
   git checkout develop
