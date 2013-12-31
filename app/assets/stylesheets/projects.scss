@@ -84,6 +84,8 @@
   @include respond-to(540) {
     float: none;
     margin: 0 auto;
+    width: 320px;
+    height: 180px;
   }
 
   &:hover {
@@ -91,6 +93,16 @@
       visibility: visible;
       opacity: 1;
     }
+  }
+}
+
+.project-image {
+  width: 240px;
+  height: 135px;
+
+  @include respond-to(540) {
+    width: 320px;
+    height: 180px;
   }
 }
 
