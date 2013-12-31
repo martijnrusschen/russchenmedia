@@ -11,6 +11,19 @@
   border-top: 1px solid transparent;
   padding-left: 30px;
   padding-right: 30px;
+
+  @include respond-to(1020) {
+    max-width: 720px;
+  }
+
+  @include respond-to(780) {
+    max-width: 480px;
+  }
+
+  @include respond-to(540) {
+    max-width: 240px;
+    padding: 0;
+  }
 }
 
 .content-region {

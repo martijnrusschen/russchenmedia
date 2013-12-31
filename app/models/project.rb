@@ -19,7 +19,8 @@
 
 class Project < ActiveRecord::Base
   has_attached_file :thumbnail, :styles => {
-    :medium => "240x135>",
+    :small => "240x135>",
+    :medium => "320x180>",
     :large => "640x360>"
   }
 
