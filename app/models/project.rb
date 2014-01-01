@@ -21,9 +21,9 @@ class Project < ActiveRecord::Base
   default_scope { order('year DESC, id DESC') }
 
   has_attached_file :thumbnail, :styles => {
-    :small => "240x135>",
-    :medium => "320x180>",
-    :large => "640x360>"
+    :small => "240x135#",
+    :medium => "320x180#",
+    :large => "640x360#"
   }
 
   def self.all_except_current(project_id)
