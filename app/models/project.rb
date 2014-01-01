@@ -18,7 +18,7 @@
 #
 
 class Project < ActiveRecord::Base
-  default_scope { order('year DESC, id DESC') }
+  default_scope { order('finished_at DESC') }
 
   has_attached_file :thumbnail, :styles => {
     :small => "240x135#",
