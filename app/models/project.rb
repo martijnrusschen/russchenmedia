@@ -38,10 +38,10 @@ class Project < ActiveRecord::Base
   end
 
   def previous
-    Project.where(["id < ?", id]).last
+    Project.where("finished_at > ?", finished_at).last
   end
 
   def next
-    Project.where(["id > ?", id]).first
+    Project.where("finished_at < ?", finished_at).first
   end
 end
