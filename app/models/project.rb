@@ -32,7 +32,7 @@ class Project < ActiveRecord::Base
   end
 
   def to_param
-    [id, title.parameterize].join("-")
+    slug
   end
 
   def previous
