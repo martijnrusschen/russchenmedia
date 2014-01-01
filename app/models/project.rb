@@ -18,25 +18,29 @@
 #
 
 class Project < ActiveRecord::Base
+  default_scope { order('finished_at DESC') }
+
   has_attached_file :thumbnail, :styles => {
-    :small => "240x135>",
-    :medium => "320x180>",
-    :large => "640x360>"
+    :small => "240x135#",
+    :medium => "320x180#",
+    :large => "640x360#"
   }
 
-  def self.all_except_current(project_id)
-    where.not(id: project_id)
+  def related
+    Project.where.not(id: id)
+      .reorder("TS_RANK_CD(TO_TSVECTOR(tasks), PLAINTO_TSQUERY('#{tasks}')) DESC")
+      .limit(4)
   end
 
   def to_param
-    [id, title.parameterize].join("-")
+    slug
   end
 
   def previous
-    Project.where(["id < ?", id]).last
+    Project.where("finished_at > ?", finished_at).last
   end
 
   def next
-    Project.where(["id > ?", id]).first
+    Project.where("finished_at < ?", finished_at).first
   end
 end

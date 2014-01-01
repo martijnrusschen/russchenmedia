@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @projects = Project.limit(16).order('Year DESC, id DESC')
+    @projects = Project.limit(16)
   end
 end
