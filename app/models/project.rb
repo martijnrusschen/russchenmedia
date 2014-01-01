@@ -28,6 +28,7 @@ class Project < ActiveRecord::Base
 
   def related
     Project.where.not(id: id)
+      .reorder("TS_RANK_CD(TO_TSVECTOR(tasks), PLAINTO_TSQUERY('#{tasks}')) DESC")
       .limit(4)
   end
 
