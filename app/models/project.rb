@@ -28,6 +28,9 @@ class Project < ActiveRecord::Base
 
   def self.all_except_current(project_id)
     where.not(id: project_id)
+  def related
+    Project.where.not(id: id)
+      .limit(4)
   end
 
   def to_param
