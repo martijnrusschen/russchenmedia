@@ -59,16 +59,16 @@ RailsAdmin.config do |config|
 
   #   # Found associations:
 
-  config.model Project do
-    configure :thumbnail, :jcrop
+  # config.model Project do
+  #   configure :thumbnail, :jcrop
 
-    # Below is optional
-    edit do
-      configure :thumbnail do
-        jcrop_options aspectRatio: 16.0/9.0
-      end
-    end
-  end
+  #   # Below is optional
+  #   edit do
+  #     configure :thumbnail do
+  #       jcrop_options aspectRatio: 16.0/9.0
+  #     end
+  #   end
+  # end
 
   #   # Cross-section configuration:
 
