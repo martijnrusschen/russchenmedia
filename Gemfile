@@ -17,7 +17,6 @@ gem 'slim-rails'
 
 gem 'paperclip'
 gem 'aws-sdk'
-gem 'rails_admin_jcrop'
 
 gem 'turbolinks'
 
