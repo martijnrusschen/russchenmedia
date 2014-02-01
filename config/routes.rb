@@ -5,7 +5,7 @@ Russchenmedia::Application.routes.draw do
   get "/nieuws_bekijken" => redirect("/")
   get "/project.php" => redirect("/")
   get "/projecten" => redirect("/")
-  get "/wijzijnwij" => redirect("/")
+  get "/wiezijnwij" => redirect("/")
   get "/index" => redirect("/")
   get "/contact" => redirect("/")
   get "/sitemap" => redirect("/")
