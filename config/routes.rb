@@ -3,6 +3,7 @@ Russchenmedia::Application.routes.draw do
   get "/rss" => redirect("/")
   get "/nieuws" => redirect("/")
   get "/nieuws_bekijken" => redirect("/")
+  get "/project.php" => redirect("/")
   get "/projecten" => redirect("/")
   get "/wijzijnwij" => redirect("/")
   get "/index" => redirect("/")
