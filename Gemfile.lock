@@ -28,6 +28,10 @@ GEM
     annotate (2.6.2)
       activerecord (>= 2.3.0)
       rake (>= 0.8.7)
+    appsignal (0.8.10)
+      activesupport (>= 3.0)
+      rack
+      thread_safe
     arel (4.0.2)
     atomic (1.1.16)
     aws-sdk (1.37.0)
@@ -216,6 +220,7 @@ PLATFORMS
 
 DEPENDENCIES
   annotate (>= 2.6.0)
+  appsignal
   aws-sdk
   coffee-rails (~> 4.0.1)
   devise
