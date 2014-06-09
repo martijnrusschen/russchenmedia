@@ -28,11 +28,13 @@ group :development do
   gem 'foreman', require: false
   gem 'annotate', ">=2.6.0", require: false
   gem 'turbo_dev_assets'
+  gem 'rails_best_practices', '~> 1', require: false
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
   gem 'dotenv-rails'
+  gem "codeclimate-test-reporter", require: false
 end
 
 group :production do
