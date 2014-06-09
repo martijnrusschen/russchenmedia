@@ -35,6 +35,7 @@ group :development, :test do
   gem 'rspec-rails', '~> 3.0'
   gem 'dotenv-rails'
   gem "codeclimate-test-reporter", require: false
+  # gem 'scss-lint', '~> 0.23' # Enable when sass-rails is updated
 end
 
 group :production do
