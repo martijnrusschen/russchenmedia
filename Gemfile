@@ -9,7 +9,7 @@ gem 'devise'
 gem 'pg'
 gem 'unicorn'
 
-gem 'sass-rails', '~> 4.0.1'
+gem 'sass-rails', '~> 4.0.3'
 gem 'uglifier', '~> 2.5.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails'
@@ -32,7 +32,7 @@ group :development do
 end
 
 group :development, :test do
-  gem 'rspec-rails', '~> 2.0'
+  gem 'rspec-rails', '~> 3.0'
   gem 'dotenv-rails'
   gem "codeclimate-test-reporter", require: false
 end
