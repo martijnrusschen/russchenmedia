@@ -1,6 +1,8 @@
 Russchen Media
 =============
 
+[![Code Climate](https://codeclimate.com/github/martijnrusschen/russchenmedia.png)](https://codeclimate.com/github/martijnrusschen/russchenmedia)
+
 ## Setup local enviroment
 - run bundle
 - rake db:reset
