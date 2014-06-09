@@ -199,6 +199,7 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
+    turbo_dev_assets (0.0.2)
     turbolinks (2.2.1)
       coffee-rails
     tzinfo (0.3.39)
@@ -236,6 +237,7 @@ DEPENDENCIES
   sdoc
   sentry-raven
   slim-rails
+  turbo_dev_assets
   turbolinks
   uglifier (~> 2.5.0)
   unicorn
