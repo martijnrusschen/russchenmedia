@@ -1,0 +1,14 @@
+language: ruby
+rvm:
+  - 2.1.2
+
+script:
+- psql -c 'create database factlink_test;' -U postgres
+- bundle exec rake db:setup
+# - bundle exec scss-lint app/assets/stylesheets/ --config .scss-lint.yml  # Enable when sass-rails is updated
+- bundle exec rails_best_practices --silent
+
+addons:
+  code_climate:
+    repo_token: 255471a43e3a15d0be710482a929e717605dd1d9a6c4729809d37d1aea8fe4f3
+  postgresql: 9.3
