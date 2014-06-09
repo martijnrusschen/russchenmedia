@@ -9,4 +9,4 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Russchenmedia::Application.config.secret_key_base = '3cf34954e2f711cc9d8c4570a9f54b46498ed56864317803957b36b94b67f435b9128a44a277cf64ddf1a89253b724ec43baace2f97ef36ea7a95fc90cd4b57f'
+Russchenmedia::Application.config.secret_key_base = ENV['SECRET_KEY_BASE']

@@ -12,12 +12,3 @@ development:
 test:
   <<: *default
   database: russchenmedia_test
-
-production:
-  adapter: postgresql
-  host: ec2-79-125-25-99.eu-west-1.compute.amazonaws.com
-  username: mwpidpvsldpqvp
-  password: DifHs6DBYJ7Yns1_PlcU95wKnT
-  database: dbfn7gsof9k2mb
-  pool: 5
-  timeout: 5000

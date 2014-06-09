@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.1.0'
+ruby '2.1.2'
 
-gem 'rails', '4.0.2'
+gem 'rails', '4.0.3'
 gem 'rails_admin'
 gem 'devise'
 
@@ -10,7 +10,7 @@ gem 'pg'
 gem 'unicorn'
 
 gem 'sass-rails', '~> 4.0.1'
-gem 'uglifier', '~> 2.4.0'
+gem 'uglifier', '~> 2.5.0'
 gem 'coffee-rails', '~> 4.0.1'
 gem 'jquery-rails'
 gem 'slim-rails'
@@ -26,11 +26,13 @@ end
 
 group :development do
   gem 'foreman', require: false
-  gem 'annotate', ">=2.5.0", require: false
+  gem 'annotate', ">=2.6.0", require: false
+  gem 'turbo_dev_assets'
 end
 
 group :development, :test do
   gem 'rspec-rails', '~> 2.0'
+  gem 'dotenv-rails'
 end
 
 group :production do
