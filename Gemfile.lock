@@ -268,7 +268,7 @@ DEPENDENCIES
   rails_admin
   rails_best_practices (~> 1)
   rspec-rails (~> 3.0)
-  sass-rails (~> 4.0.1)
+  sass-rails (~> 4.0.3)
   sdoc
   sentry-raven
   slim-rails
