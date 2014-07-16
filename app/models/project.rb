@@ -26,6 +26,10 @@ class Project < ActiveRecord::Base
     :large => "640x360#"
   }
 
+  validates_attachment :image, content_type: {
+    content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
+  }
+
   def related
     Project.where.not(id: id)
       .reorder("TS_RANK_CD(TO_TSVECTOR(tasks), PLAINTO_TSQUERY('#{tasks}')) DESC")
