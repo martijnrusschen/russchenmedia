@@ -26,7 +26,7 @@ class Project < ActiveRecord::Base
     :large => "640x360#"
   }
 
-  validates_attachment :image, content_type: {
+  validates_attachment :thumbnail, content_type: {
     content_type: ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   }
 
