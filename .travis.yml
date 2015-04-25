@@ -1,6 +1,6 @@
 language: ruby
 rvm:
-  - 2.1.2
+  - 2.1.6
 
 script:
 - psql -c 'create database factlink_test;' -U postgres
