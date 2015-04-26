@@ -10,7 +10,7 @@ gem 'pg'
 gem 'unicorn'
 
 gem 'sass-rails', '~> 5.0.3'
-gem 'uglifier', '~> 2.5.0'
+gem 'uglifier', '~> 2.7'
 gem 'coffee-rails', '~> 4.1.0'
 gem 'jquery-rails'
 gem 'slim-rails'

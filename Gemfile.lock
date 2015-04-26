@@ -245,7 +245,7 @@ GEM
       coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
-    uglifier (2.5.3)
+    uglifier (2.7.1)
       execjs (>= 0.3.0)
       json (>= 1.8.0)
     unicorn (4.9.0)
@@ -284,5 +284,5 @@ DEPENDENCIES
   slim-rails
   turbo_dev_assets
   turbolinks
-  uglifier (~> 2.5.0)
+  uglifier (~> 2.7)
   unicorn
