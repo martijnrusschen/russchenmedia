@@ -27,7 +27,7 @@ end
 
 group :development do
   gem 'foreman', require: false
-  gem 'annotate', ">=2.6.0", require: false
+  gem 'annotate', ">=2.7.0", require: false
   gem 'turbo_dev_assets'
   gem 'rails_best_practices', '~> 1', require: false
 end
