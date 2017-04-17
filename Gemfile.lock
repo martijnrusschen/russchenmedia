@@ -264,9 +264,8 @@ GEM
     turbolinks-source (5.0.0)
     tzinfo (1.2.3)
       thread_safe (~> 0.1)
-    uglifier (2.7.2)
-      execjs (>= 0.3.0)
-      json (>= 1.8.0)
+    uglifier (3.2.0)
+      execjs (>= 0.3.0, < 3)
     warden (1.2.7)
       rack (>= 1.0)
     websocket-driver (0.6.5)
@@ -305,7 +304,7 @@ DEPENDENCIES
   sprockets-rails
   turbo_dev_assets
   turbolinks
-  uglifier (~> 2.7)
+  uglifier (~> 3.2)
 
 RUBY VERSION
    ruby 2.4.1p111

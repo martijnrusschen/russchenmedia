@@ -11,7 +11,7 @@ gem 'pg'
 gem 'puma'
 
 gem 'sass-rails', '~> 5.0.6'
-gem 'uglifier', '~> 2.7'
+gem 'uglifier', '~> 3.2'
 gem 'coffee-rails', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'slim-rails'
