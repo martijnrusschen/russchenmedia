@@ -1,18 +1,18 @@
 source 'https://rubygems.org'
 
-ruby '2.1.7'
+ruby '2.4.1'
 
-gem 'rails', '4.2.5'
-gem 'sprockets-rails', '~> 2.3.3' 
+gem 'rails', '5.0.2'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'rails_admin'
 gem 'devise'
 
 gem 'pg'
-gem 'unicorn'
+gem 'puma'
 
-gem 'sass-rails', '~> 5.0.3'
+gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '~> 2.7'
-gem 'coffee-rails', '~> 4.1.0'
+gem 'coffee-rails', '~> 4.2.1'
 gem 'jquery-rails'
 gem 'slim-rails'
 
@@ -39,9 +39,10 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.0'
+  gem 'rspec-rails', '~> 3.5'
   gem 'factory_girl_rails'
   gem 'approvals'
+  gem 'rails-controller-testing'
 end
 
 group :production do

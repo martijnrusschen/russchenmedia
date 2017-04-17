@@ -1,4 +1,4 @@
-Russchenmedia::Application.routes.draw do
+Rails.application.routes.draw do
   #Old urls to root
   get "/rss" => redirect("/")
   get "/nieuws" => redirect("/")

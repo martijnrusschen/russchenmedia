@@ -5,7 +5,7 @@ describe ProjectsController, type: :controller do
     render_views
     let(:project) { create :project }
 
-    subject { get :show, id: project.slug }
+    subject { get :show, params: { id: project.slug } }
 
     it { is_expected.to render_template 'projects/show' }
     it { expect(subject.status).to eq 200 }

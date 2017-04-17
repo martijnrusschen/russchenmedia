@@ -17,7 +17,7 @@
 #  thumbnail_updated_at   :datetime
 #
 
-class Project < ActiveRecord::Base
+class Project < ApplicationRecord
   default_scope { order('finished_at DESC') }
 
   has_attached_file :thumbnail, :styles => {
