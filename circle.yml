@@ -1,3 +1,9 @@
 test:
   post:
     - bundle exec rails_best_practices --silent
+
+deployment:
+  production:
+    branch: master
+    heroku:
+      appname: russchenmedia
