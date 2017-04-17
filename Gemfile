@@ -8,7 +8,7 @@ gem 'rails_admin'
 gem 'devise'
 
 gem 'pg'
-gem 'unicorn'
+gem 'puma'
 
 gem 'sass-rails', '~> 5.0.6'
 gem 'uglifier', '~> 2.7'
