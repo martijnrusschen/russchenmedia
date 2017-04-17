@@ -53,7 +53,8 @@ Russchenmedia::Application.configure do
       :bucket => ENV['BUCKET_NAME'],
       :access_key_id => ENV['AWS_ACCESS_KEY_ID'],
       :secret_access_key => ENV['AWS_SECRET_ACCESS_KEY']
-    }
+    },
+    :s3_region => ENV['S3_REGION']
   }
 
   # Set to :debug to see everything in the log.
