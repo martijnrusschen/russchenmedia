@@ -3,7 +3,9 @@ require 'spec_helper'
 describe ProjectsController, type: :controller do
   describe '#show' do
     render_views
-    let(:project) { create :project }
+    let(:project) do
+      create :project, title: 'Project 1', slug: 'project-1', created_at: DateTime.new(2017,01,01)
+    end
 
     subject { get :show, params: { id: project.slug, format: format } }
 
