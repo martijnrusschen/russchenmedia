@@ -3,9 +3,8 @@ require 'spec_helper'
 describe ProjectsController, type: :controller do
   describe '#show' do
     render_views
-    let(:project) do
-      create :project, title: 'Project 1', slug: 'project-1', created_at: DateTime.new(2017,01,01)
-    end
+
+    let(:project) { create :project, title: 'Project 1', slug: 'project-1' }
 
     subject { get :show, params: { id: project.slug, format: format } }
 
@@ -20,8 +19,15 @@ describe ProjectsController, type: :controller do
     context 'format json' do
       let(:format) { :json }
 
-      it 'works' do
+      before do
+        Timecop.freeze(Time.local(1990))
+      end
 
+      after do
+        Timecop.return
+      end
+
+      it 'works' do
         verify fomat: :json do
           subject.body
         end
