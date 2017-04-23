@@ -3,12 +3,26 @@ require 'spec_helper'
 describe ProjectsController, type: :controller do
   describe '#show' do
     render_views
-    let(:project) { create :project }
 
-    subject { get :show, params: { id: project.slug } }
+    before { Timecop.freeze(Time.local(1990)) }
+    after { Timecop.return }
 
-    it { is_expected.to render_template 'projects/show' }
-    it { expect(subject.status).to eq 200 }
-    it { expect(subject.body).to include project.title }
+    let(:project) { create :project, title: 'Project 1', slug: 'project-1' }
+
+    subject { get :show, params: { id: project.slug, format: format } }
+
+    context 'format html' do
+      let(:format) { :html }
+
+      it { is_expected.to render_template 'projects/show' }
+      it { expect(subject.status).to eq 200 }
+      it { expect(subject.body).to include project.title }
+    end
+
+    context 'format json' do
+      let(:format) { :json }
+
+      it { verify fomat: :json { subject.body } }
+    end
   end
 end

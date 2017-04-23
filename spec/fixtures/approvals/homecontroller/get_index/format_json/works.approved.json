@@ -1,0 +1,19 @@
+[
+  {
+    "id": "<id>",
+    "title": "Project 1",
+    "description": "awesome test project",
+    "youtube_id": "<id>",
+    "created_at": "1989-12-31T23:00:00.000Z",
+    "updated_at": "1989-12-31T23:00:00.000Z",
+    "client": null,
+    "tasks": null,
+    "year": null,
+    "thumbnail_file_name": null,
+    "thumbnail_content_type": null,
+    "thumbnail_file_size": null,
+    "thumbnail_updated_at": null,
+    "finished_at": null,
+    "slug": "project-1"
+  }
+]
