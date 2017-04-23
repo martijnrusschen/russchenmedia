@@ -3,13 +3,8 @@ require 'spec_helper'
 describe HomeController, type: :controller do
   render_views
 
-  before do
-    Timecop.freeze(Time.local(1990))
-  end
-
-  after do
-    Timecop.return
-  end
+  before { Timecop.freeze(Time.local(1990)) }
+  after { Timecop.return }
 
   subject { get :index, format: format }
 

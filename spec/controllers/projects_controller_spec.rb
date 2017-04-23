@@ -5,7 +5,6 @@ describe ProjectsController, type: :controller do
     render_views
 
     before { Timecop.freeze(Time.local(1990)) }
-
     after { Timecop.return }
 
     let(:project) { create :project, title: 'Project 1', slug: 'project-1' }
