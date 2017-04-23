@@ -4,6 +4,10 @@ describe ProjectsController, type: :controller do
   describe '#show' do
     render_views
 
+    before { Timecop.freeze(Time.local(1990)) }
+
+    after { Timecop.return }
+
     let(:project) { create :project, title: 'Project 1', slug: 'project-1' }
 
     subject { get :show, params: { id: project.slug, format: format } }
@@ -19,19 +23,7 @@ describe ProjectsController, type: :controller do
     context 'format json' do
       let(:format) { :json }
 
-      before do
-        Timecop.freeze(Time.local(1990))
-      end
-
-      after do
-        Timecop.return
-      end
-
-      it 'works' do
-        verify fomat: :json do
-          subject.body
-        end
-      end
+      it { verify fomat: :json { subject.body } }
     end
   end
 end
