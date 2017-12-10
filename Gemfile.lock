@@ -820,11 +820,11 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  annotate (>= 2.7.0)
+  annotate
   approvals
   aws-sdk
   codeclimate-test-reporter
-  coffee-rails (~> 4.2.1)
+  coffee-rails
   devise
   dotenv-rails
   factory_girl_rails
@@ -840,9 +840,9 @@ DEPENDENCIES
   rails-controller-testing
   rails_12factor
   rails_admin
-  rails_best_practices (~> 1)
+  rails_best_practices
   rspec-rails (~> 3.5)
-  sass-rails (~> 5.0.6)
+  sass-rails
   sdoc
   sentry-raven
   slim-rails

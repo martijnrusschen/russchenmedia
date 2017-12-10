@@ -10,9 +10,9 @@ gem 'devise'
 gem 'pg'
 gem 'puma'
 
-gem 'sass-rails', '~> 5.0.6'
+gem 'sass-rails'
 gem 'uglifier'
-gem 'coffee-rails', '~> 4.2.1'
+gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'slim-rails'
 
@@ -27,9 +27,9 @@ end
 
 group :development do
   gem 'foreman', require: false
-  gem 'annotate', ">=2.7.0", require: false
+  gem 'annotate', require: false
   gem 'turbo_dev_assets'
-  gem 'rails_best_practices', '~> 1', require: false
+  gem 'rails_best_practices', require: false
   gem 'listen'
 end
 
