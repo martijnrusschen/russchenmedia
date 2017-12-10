@@ -43,6 +43,7 @@ group :test do
   gem 'factory_girl_rails'
   gem 'approvals'
   gem 'rails-controller-testing'
+  gem 'timecop'
 end
 
 group :production do
