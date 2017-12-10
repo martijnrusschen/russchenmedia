@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 ruby '2.4.2'
 
-gem 'rails', '5.0.2'
+gem 'rails', '5.1.4'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'rails_admin'
 gem 'devise'
