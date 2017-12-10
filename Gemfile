@@ -40,7 +40,7 @@ group :development, :test do
 end
 
 group :test do
-  gem 'rspec-rails', '~> 3.5'
+  gem 'rspec-rails'
   gem 'factory_girl_rails'
   gem 'approvals'
   gem 'rails-controller-testing'

@@ -841,7 +841,7 @@ DEPENDENCIES
   rails_12factor
   rails_admin
   rails_best_practices
-  rspec-rails (~> 3.5)
+  rspec-rails
   sass-rails
   sdoc
   sentry-raven
