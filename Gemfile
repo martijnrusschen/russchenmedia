@@ -30,6 +30,7 @@ group :development do
   gem 'annotate', ">=2.7.0", require: false
   gem 'turbo_dev_assets'
   gem 'rails_best_practices', '~> 1', require: false
+  gem 'listen'
 end
 
 group :development, :test do
