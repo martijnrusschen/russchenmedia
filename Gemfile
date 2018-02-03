@@ -21,6 +21,7 @@ gem 'paperclip'
 gem 'aws-sdk'
 
 gem 'turbolinks'
+gem 'securitytxt'
 
 group :doc do
   gem 'sdoc', require: false

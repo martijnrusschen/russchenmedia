@@ -776,6 +776,7 @@ GEM
     sdoc (0.4.2)
       json (~> 1.7, >= 1.7.7)
       rdoc (~> 4.0)
+    securitytxt (0.1.1)
     sentry-raven (2.7.1)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.10.0)
@@ -844,6 +845,7 @@ DEPENDENCIES
   rspec-rails
   sass-rails
   sdoc
+  securitytxt
   sentry-raven
   slim-rails
   sprockets-rails
