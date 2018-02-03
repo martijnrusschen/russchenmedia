@@ -1,4 +1,4 @@
-FactoryGirl.define do
+FactoryBot.define do
   factory :project do
     sequence(:title) {|n| "Project #{n}" }
     sequence(:slug) {|n| "project-#{n}"}
