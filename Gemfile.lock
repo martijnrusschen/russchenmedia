@@ -776,7 +776,7 @@ GEM
     sdoc (1.0.0)
       rdoc (>= 5.0)
     securitytxt (0.1.1)
-    sentry-raven (2.7.1)
+    sentry-raven (2.7.2)
       faraday (>= 0.7.6, < 1.0)
     sexp_processor (4.11.0)
     simplecov (0.13.0)
