@@ -661,7 +661,7 @@ GEM
     minitest (5.11.3)
     multipart-post (2.0.0)
     nested_form (0.3.2)
-    newrelic_rpm (4.7.1.340)
+    newrelic_rpm (5.0.0.342)
     nio4r (2.2.0)
     nokogiri (1.8.1)
       mini_portile2 (~> 2.3.0)
