@@ -8,7 +8,7 @@ gem 'rails_admin'
 gem 'devise'
 
 # https://stackoverflow.com/questions/48225233/gemloaderror-cant-activate-pg-0-18-already-activated-pg-1-0-0
-gem 'pg', '~> 0.18'
+gem 'pg', '~> 1.0'
 gem 'puma'
 
 gem 'sass-rails'
