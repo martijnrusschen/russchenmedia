@@ -673,7 +673,7 @@ GEM
       mime-types
       mimemagic (~> 0.3.0)
     pg (0.21.0)
-    puma (3.11.2)
+    puma (3.11.4)
     rack (2.0.4)
     rack-pjax (1.0.0)
       nokogiri (~> 1.5)
