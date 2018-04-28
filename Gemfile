@@ -2,10 +2,11 @@ source 'https://rubygems.org'
 
 ruby '2.5.0'
 
-gem 'rails', '5.1.6'
+gem 'rails', '5.2.0'
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 gem 'rails_admin'
 gem 'devise'
+gem 'bootsnap', require: false
 
 # https://stackoverflow.com/questions/48225233/gemloaderror-cant-activate-pg-0-18-already-activated-pg-1-0-0
 gem 'pg', '~> 1.0'
