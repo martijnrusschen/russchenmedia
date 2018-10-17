@@ -19,7 +19,7 @@ gem 'jquery-rails'
 gem 'slim-rails'
 
 gem 'paperclip'
-gem 'aws-sdk'
+gem 'aws-sdk-s3'
 
 gem 'turbolinks'
 
