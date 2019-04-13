@@ -1,58 +1,29 @@
-source 'https://rubygems.org'
+source "https://rubygems.org"
 
-ruby '2.5.1'
+# Hello! This is where you manage which Jekyll version is used to run.
+# When you want to use a different version, change it below, save the
+# file and run `bundle install`. Run Jekyll with `bundle exec`, like so:
+#
+#     bundle exec jekyll serve
+#
+# This will help ensure the proper Jekyll version is running.
+# Happy Jekylling!
+gem "jekyll", "~> 3.7.3"
 
-gem 'rails', '5.2.2.1'
-gem 'sprockets-rails', :require => 'sprockets/railtie'
-gem 'rails_admin'
-gem 'devise'
-gem 'bootsnap', require: false
+# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
+# uncomment the line below. To upgrade, run `bundle update github-pages`.
+# gem "github-pages", group: :jekyll_plugins
 
-# https://stackoverflow.com/questions/48225233/gemloaderror-cant-activate-pg-0-18-already-activated-pg-1-0-0
-gem 'pg', '~> 1.1'
-gem 'puma'
-
-gem 'sass-rails'
-gem 'uglifier'
-gem 'coffee-rails'
-gem 'jquery-rails'
-gem 'slim-rails'
-
-gem 'paperclip'
-gem 'aws-sdk-s3'
-
-gem 'turbolinks'
-
-group :doc do
-  gem 'sdoc', require: false
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-feed"
+  gem "jekyll-seo-tag"
+  gem 'jekyll-sitemap'
+  gem 'github-pages'
 end
 
-group :development do
-  gem 'foreman', require: false
-  gem 'annotate', require: false
-  gem 'turbo_dev_assets'
-  gem 'rails_best_practices', require: false
-  gem 'listen'
-end
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
-group :development, :test do
-  gem 'dotenv-rails'
-  gem "codeclimate-test-reporter", require: false
-  # gem 'scss-lint', '~> 0.23' # Enable when sass-rails is updated
-end
-
-group :test do
-  gem 'rspec-rails'
-  gem 'factory_bot_rails'
-  gem 'approvals'
-  gem 'rails-controller-testing'
-end
-
-group :production do
-  gem 'rails_12factor'
-  gem 'sentry-raven'
-  gem 'newrelic_rpm'
-  gem 'heroku-deflater'
-end
-
-gem 'securitytxt'
+# Performance-booster for watching directories on Windows
+gem "wdm", "~> 0.1.0" if Gem.win_platform?

@@ -1,0 +1,14 @@
+{%- if site.posts.size > 0 -%}
+<ul class="thumbnail-list">
+    {%- for post in site.posts -%}
+    <li class="thumbnail">
+        <a href="{{ post.url | relative_url }}">
+            <img class="project-image" src="/assets/images/projects/{{ post.image }}">
+            <div class="project-overlay">
+                <i class="icon-play"></i>
+            </div>
+        </a>
+    </li>
+    {%- endfor -%}
+</ul>
+{%- endif -%}
