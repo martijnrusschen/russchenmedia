@@ -1,0 +1,49 @@
+---
+layout: default
+---
+<article itemscope itemtype="http://schema.org/BlogPosting">
+    <div class="youtube-container">
+        <iframe class="youtube-iframe" width="962" height="541" src="https://www.youtube.com/embed/{{ page.youtube_id }}?rel=0"
+            frameborder="0" allowfullscreen></iframe>
+    </div>
+
+    <table class="project-details">
+        <tr>
+            <th>Titel</th>
+            <td>{{ page.title }}</td>
+        </tr>
+        <tr>
+            <th>Opdrachtgever</th>
+            <td>{{ page.client }}</td>
+        </tr>
+        <tr>
+            <th>Werk</th>
+            <td>{{ page.tasks }}</td>
+        </tr>
+        <tr>
+            <th>Jaar</th>
+            <td>{{ page.year }}</td>
+        </tr>
+    </table>
+
+    <div class="project-description" itemprop="articleBody">
+        {{ content }}
+    </div>
+
+    <a class="u-url" href="{{ page.url | relative_url }}" hidden></a>
+
+    <p class="project-others">Bekijk de andere projecten van Russchen Media</p>
+    {%- include projects-5.html -%}
+
+    {% if page.previous.url %}
+        <a href="{{page.previous.url}}">
+            <div class="previous-project"></div>
+        </a>
+    {% endif %}
+    {% if page.next.url %}
+        <a href="{{page.next.url}}">
+            <div class="next-project"></div>
+        </a>
+    {% endif %}
+</article>
+
