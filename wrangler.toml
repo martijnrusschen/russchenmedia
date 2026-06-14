@@ -1,3 +1,8 @@
 name = "russchenmedia"
 compatibility_date = "2025-06-01"
-pages_build_output_dir = "dist"
+
+# Static site via Cloudflare Workers Static Assets. `wrangler deploy` uploads
+# the build output; there is no Worker script (assets-only). Security and cache
+# headers live in public/_headers (shipped into dist/).
+[assets]
+directory = "./dist"
