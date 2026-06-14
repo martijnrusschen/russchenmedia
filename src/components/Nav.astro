@@ -1,6 +1,6 @@
 ---
 import type { Locale } from '../i18n/config';
-import { locales, localeNames, homePath } from '../i18n/config';
+import { locales, localeNames, localeDomains } from '../i18n/config';
 import { useUI } from '../i18n/ui';
 import { site } from '../data/site';
 
@@ -9,7 +9,6 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = useUI(locale);
-const home = homePath(locale);
 
 const sections = [
   { href: '#diensten', label: t.nav.services },
@@ -21,7 +20,7 @@ const sections = [
 
 <header class="nav">
   <div class="container nav__inner">
-    <a class="nav__brand" href={home} aria-label={site.name}>
+    <a class="nav__brand" href="/" aria-label={site.name}>
       <img src="/images/russchenmedia-logo.png" alt={site.name} width="40" height="36" />
       <span>{site.name}</span>
     </a>
@@ -40,7 +39,7 @@ const sections = [
         {
           locales.map((l) => (
             <a
-              href={homePath(l)}
+              href={`${localeDomains[l]}/`}
               class={`nav__lang-link${l === locale ? ' is-active' : ''}`}
               aria-current={l === locale ? 'true' : undefined}
               hreflang={l}

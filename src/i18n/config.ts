@@ -7,6 +7,12 @@ export const localeNames: Record<Locale, string> = {
   en: 'English',
 };
 
+// Each language has its own canonical domain: Dutch on .nl, English on .com.
+export const localeDomains: Record<Locale, string> = {
+  nl: 'https://russchenmedia.nl',
+  en: 'https://russchenmedia.com',
+};
+
 /** Resolve the active locale from the request URL (/en/... => 'en'). */
 export function getLocale(url: URL): Locale {
   const seg = url.pathname.split('/').filter(Boolean)[0];

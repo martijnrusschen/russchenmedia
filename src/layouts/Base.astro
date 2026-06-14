@@ -2,7 +2,7 @@
 import '../styles/global.css';
 import { site } from '../data/site';
 import type { Locale } from '../i18n/config';
-import { locales, localizedPath, defaultLocale } from '../i18n/config';
+import { locales, defaultLocale, localeDomains } from '../i18n/config';
 import { useUI } from '../i18n/ui';
 
 interface Props {
@@ -16,17 +16,19 @@ const t = useUI(locale);
 const pageTitle = title ?? t.meta.title;
 const pageDesc = description ?? t.meta.description;
 
-const canonical = new URL(Astro.url.pathname, site.url).href;
-const ogImage = new URL('/images/og-russchenmedia.png', site.url).href;
-
-// Build hreflang alternates from the locale-agnostic path.
+// Locale-agnostic path (strip a leading /en). Each locale resolves to its own
+// canonical domain, so the English pages are canonical on russchenmedia.com.
 const segs = Astro.url.pathname.split('/').filter(Boolean);
 if ((locales as readonly string[]).includes(segs[0])) segs.shift();
 const logical = '/' + segs.join('/');
+
+const canonical = new URL(logical, localeDomains[locale]).href;
+const ogImage = new URL('/images/og-russchenmedia.png', localeDomains[locale]).href;
 const alternates = locales.map((l) => ({
   hreflang: l,
-  href: new URL(localizedPath(logical, l), site.url).href,
+  href: new URL(logical, localeDomains[l]).href,
 }));
+const xDefaultHref = new URL(logical, localeDomains[defaultLocale]).href;
 
 const jsonLd = {
   '@context': 'https://schema.org',
@@ -64,7 +66,7 @@ const cfToken = site.cloudflareAnalyticsToken;
     <meta name="description" content={pageDesc} />
     <link rel="canonical" href={canonical} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
-    <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(logical, defaultLocale), site.url).href} />
+    <link rel="alternate" hreflang="x-default" href={xDefaultHref} />
 
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
