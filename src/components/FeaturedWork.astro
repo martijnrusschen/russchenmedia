@@ -1,63 +1,88 @@
 ---
+import { Image } from 'astro:assets';
+import type { Locale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 import { projects } from '../data/projects';
 
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
+
 const featured = projects.find((p) => p.featured) ?? projects[0];
-const host = featured ? new URL(featured.url).host : '';
+const others = projects.filter((p) => p !== featured);
+const hostOf = (url: string) => new URL(url).host;
 ---
 
-{
-  featured && (
-    <section class="section" id="werk">
-      <div class="container">
-        <p class="eyebrow">Uitgelicht werk</p>
-        <h2 class="section-title">Recente projecten.</h2>
+<section class="section" id="werk">
+  <div class="container">
+    <p class="eyebrow">{t.work.eyebrow}</p>
+    <h2 class="section-title">{t.work.title}</h2>
 
+    {
+      featured && (
         <article class="feature">
           <a class="feature__media" href={featured.url} target="_blank" rel="noopener">
-            <img
+            <Image
               src={featured.image}
               alt={featured.title}
-              width="1776"
-              height="1634"
-              loading="lazy"
+              sizes="(max-width: 860px) 100vw, 560px"
+              widths={[480, 700, 960, 1200]}
             />
           </a>
           <div class="feature__body">
-            {
-              featured.logo && (
-                <img
-                  class="feature__logo"
-                  src={featured.logo}
-                  alt={`${featured.title} logo`}
-                  width="52"
-                  height="52"
-                  loading="lazy"
-                />
-              )
-            }
+            {featured.logo && (
+              <img class="feature__logo" src={featured.logo} alt={`${featured.title} logo`} width="52" height="52" loading="lazy" />
+            )}
             <h3 class="feature__title">{featured.title}</h3>
-            <p class="feature__subtitle">{featured.subtitle}</p>
-            <p class="feature__desc">{featured.description}</p>
+            <p class="feature__subtitle">{featured.subtitle[locale]}</p>
+            <p class="feature__desc">{featured.description[locale]}</p>
             <dl class="feature__meta">
-              <dt>Rol</dt>
-              <dd>{featured.role}</dd>
+              <dt>{t.work.roleLabel}</dt>
+              <dd>{featured.role[locale]}</dd>
             </dl>
             <a class="btn btn--primary" href={featured.url} target="_blank" rel="noopener">
-              Bekijk {host} →
+              {t.work.visit} {hostOf(featured.url)} →
             </a>
           </div>
         </article>
-      </div>
-    </section>
-  )
-}
+      )
+    }
+
+    {
+      others.length > 0 && (
+        <ul class="cases">
+          {others.map((p) => (
+            <li class="case">
+              <a class="case__media" href={p.url} target="_blank" rel="noopener">
+                <Image
+                  src={p.image}
+                  alt={p.title}
+                  sizes="(max-width: 860px) 100vw, 360px"
+                  widths={[400, 560, 800]}
+                />
+              </a>
+              <div class="case__body">
+                <h3 class="case__title">{p.title}</h3>
+                <p class="case__subtitle">{p.subtitle[locale]}</p>
+                <a class="case__link" href={p.url} target="_blank" rel="noopener">
+                  {hostOf(p.url)} →
+                </a>
+              </div>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </div>
+</section>
 
 <style>
   .feature {
     margin-top: 40px;
     display: grid;
     grid-template-columns: 1.1fr 0.9fr;
-    gap: 0;
     background: #fff;
     border: 1px solid var(--color-border);
     border-radius: var(--radius);
@@ -71,7 +96,7 @@ const host = featured ? new URL(featured.url).host : '';
     background: #0a0e13;
   }
 
-  .feature__media img {
+  .feature__media :global(img) {
     width: 100%;
     height: 100%;
     object-fit: cover;
@@ -79,7 +104,7 @@ const host = featured ? new URL(featured.url).host : '';
     transition: transform 0.4s ease;
   }
 
-  .feature__media:hover img {
+  .feature__media:hover :global(img) {
     transform: scale(1.02);
   }
 
@@ -130,12 +155,77 @@ const host = featured ? new URL(featured.url).host : '';
     font-weight: 600;
   }
 
+  .cases {
+    list-style: none;
+    margin: 20px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .case {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
+  }
+
+  .case:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .case__media {
+    display: block;
+    overflow: hidden;
+    aspect-ratio: 16 / 10;
+  }
+
+  .case__media :global(img) {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+  }
+
+  .case:hover .case__media :global(img) {
+    transform: scale(1.03);
+  }
+
+  .case__body {
+    padding: 22px 24px 26px;
+  }
+
+  .case__title {
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
+
+  .case__subtitle {
+    margin-top: 6px;
+    color: var(--color-muted);
+    font-size: 0.95rem;
+  }
+
+  .case__link {
+    display: inline-block;
+    margin-top: 14px;
+    font-weight: 600;
+    font-size: 0.92rem;
+  }
+
   @media (max-width: 860px) {
     .feature {
       grid-template-columns: 1fr;
     }
-    .feature__media img {
+    .feature__media :global(img) {
       aspect-ratio: 16 / 10;
+    }
+    .cases {
+      grid-template-columns: 1fr;
     }
   }
 </style>

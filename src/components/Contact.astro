@@ -1,14 +1,20 @@
 ---
+import type { Locale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
 ---
 
 <section class="section" id="contact">
   <div class="container contact">
-    <p class="eyebrow">Samenwerken?</p>
-    <h2 class="section-title">Een nieuw project of een site die beter kan?</h2>
-    <p class="section-lead contact__lead">
-      Stuur een bericht. Ik denk graag mee over wat het beste werkt.
-    </p>
+    <p class="eyebrow">{t.contact.eyebrow}</p>
+    <h2 class="section-title">{t.contact.title}</h2>
+    <p class="section-lead contact__lead">{t.contact.lead}</p>
     <div class="contact__actions">
       <a class="btn btn--primary" href={`mailto:${site.email}`}>{site.email}</a>
       <a class="btn btn--ghost" href={`tel:${site.phoneHref}`}>{site.phone}</a>

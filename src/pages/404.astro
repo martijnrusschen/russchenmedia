@@ -1,26 +1,33 @@
 ---
 import Base from '../layouts/Base.astro';
+import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
+import { useUI } from '../i18n/ui';
 import { site } from '../data/site';
+
+const locale = 'nl';
+const t = useUI(locale);
 ---
 
-<Base title={`Pagina niet gevonden | ${site.name}`}>
+<Base locale={locale} title={`${t.notFound.title} | ${site.name}`}>
+  <span id="top"></span>
+  <Nav locale={locale} />
   <main class="notfound">
     <div class="container">
-      <p class="eyebrow">404</p>
-      <h1 class="section-title">Deze pagina bestaat niet.</h1>
-      <p class="section-lead">De link is mogelijk verouderd of verplaatst.</p>
+      <p class="eyebrow">{t.notFound.code}</p>
+      <h1 class="section-title">{t.notFound.title}</h1>
+      <p class="section-lead">{t.notFound.lead}</p>
       <p style="margin-top: 28px;">
-        <a class="btn btn--primary" href="/">Terug naar home</a>
+        <a class="btn btn--primary" href="/">{t.notFound.home}</a>
       </p>
     </div>
   </main>
-  <Footer />
+  <Footer locale={locale} />
 </Base>
 
 <style>
   .notfound {
-    padding-block: 120px;
+    padding-block: 100px;
     text-align: center;
   }
   .notfound .section-lead {
