@@ -16,11 +16,12 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      // English is canonical on russchenmedia.com, so map the built /en/ URL
-      // to its .com address in the sitemap.
+      // English is canonical on russchenmedia.com, so map built /en/ URLs to
+      // their .com addresses in the sitemap.
       serialize(item) {
-        if (item.url === 'https://russchenmedia.nl/en/') {
-          return { ...item, url: 'https://russchenmedia.com/' };
+        const prefix = 'https://russchenmedia.nl/en/';
+        if (item.url.startsWith(prefix)) {
+          return { ...item, url: 'https://russchenmedia.com/' + item.url.slice(prefix.length) };
         }
         return item;
       },

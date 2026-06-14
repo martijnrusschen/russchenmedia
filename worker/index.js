@@ -1,12 +1,27 @@
 /**
  * Static site served from the ASSETS binding with host-based routing.
  *
- * Dutch lives on russchenmedia.nl, English on russchenmedia.com. The English
- * pages are built under /en/; the Worker serves them at the root of .com and
- * consolidates every other English URL onto .com so there is one canonical
- * English address.
+ * Dutch lives on russchenmedia.nl, English on russchenmedia.com. English pages
+ * are built under /en/; on .com the Worker serves them at the root (so /privacy
+ * on .com maps to /en/privacy), and consolidates every /en/ URL onto .com so
+ * each language has a single canonical address.
  */
 const COM = 'https://russchenmedia.com';
+
+// Shared, non-localized files that must be served as-is on every host.
+function isSharedAsset(pathname) {
+  return (
+    pathname.startsWith('/_astro/') ||
+    pathname.startsWith('/images/') ||
+    pathname.startsWith('/sitemap') ||
+    pathname.startsWith('/icon-') ||
+    pathname === '/favicon.ico' ||
+    pathname === '/apple-touch-icon.png' ||
+    pathname === '/robots.txt' ||
+    pathname === '/site.webmanifest' ||
+    /\.[a-z0-9]+$/i.test(pathname)
+  );
+}
 
 export default {
   async fetch(request, env) {
@@ -16,16 +31,16 @@ export default {
     const isNl = host === 'russchenmedia.nl' || host === 'www.russchenmedia.nl';
 
     if (isCom) {
-      // English homepage at the .com root.
-      if (url.pathname === '/' || url.pathname === '') {
-        const target = new URL(request.url);
-        target.pathname = '/en/';
-        return env.ASSETS.fetch(new Request(target, request));
-      }
       // No /en/ duplicate on .com: strip the prefix.
       if (url.pathname === '/en' || url.pathname.startsWith('/en/')) {
         const rest = url.pathname.replace(/^\/en/, '') || '/';
         return Response.redirect(COM + rest + url.search, 301);
+      }
+      // Shared assets pass through; localized pages map to /en/*.
+      if (!isSharedAsset(url.pathname)) {
+        const target = new URL(request.url);
+        target.pathname = '/en' + (url.pathname === '/' ? '/' : url.pathname);
+        return env.ASSETS.fetch(new Request(target, request));
       }
       return env.ASSETS.fetch(request);
     }

@@ -1,6 +1,7 @@
 ---
 import type { Locale } from '../i18n/config';
 import { useUI } from '../i18n/ui';
+import { privacy } from '../i18n/legal';
 import { site } from '../data/site';
 
 interface Props {
@@ -20,6 +21,7 @@ const year = new Date().getFullYear();
       <a href={`tel:${site.phoneHref}`}>{site.phone}</a>
       <a href={site.social.github} target="_blank" rel="noopener">GitHub</a>
       <a href={site.social.personal} target="_blank" rel="noopener">martijnrusschen.nl</a>
+      <a href="/privacy">{privacy[locale].navLabel}</a>
     </nav>
 
     <a class="footer__top" href="#top">{t.footer.backToTop} ↑</a>
