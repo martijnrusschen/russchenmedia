@@ -2,28 +2,39 @@
 import Base from '../layouts/Base.astro';
 import Nav from '../components/Nav.astro';
 import Footer from '../components/Footer.astro';
-import { useUI } from '../i18n/ui';
+import { ui } from '../i18n/ui';
 import { site } from '../data/site';
 
-const locale = 'nl';
-const t = useUI(locale);
+// One 404.html serves both domains; default to Dutch and switch to English
+// on the .com domain via a small inline script.
+const nl = ui.nl.notFound;
+const en = ui.en.notFound;
 ---
 
-<Base locale={locale} title={`${t.notFound.title} | ${site.name}`}>
+<Base locale="nl" title={`${nl.title} | ${site.name}`}>
   <span id="top"></span>
-  <Nav locale={locale} />
+  <Nav locale="nl" />
   <main id="main" class="notfound">
     <div class="container">
-      <p class="eyebrow">{t.notFound.code}</p>
-      <h1 class="section-title">{t.notFound.title}</h1>
-      <p class="section-lead">{t.notFound.lead}</p>
+      <p class="eyebrow">404</p>
+      <h1 class="section-title" data-nl={nl.title} data-en={en.title}>{nl.title}</h1>
+      <p class="section-lead" data-nl={nl.lead} data-en={en.lead}>{nl.lead}</p>
       <p style="margin-top: 28px;">
-        <a class="btn btn--primary" href="/">{t.notFound.home}</a>
+        <a class="btn btn--primary" href="/" data-nl={nl.home} data-en={en.home}>{nl.home}</a>
       </p>
     </div>
   </main>
-  <Footer locale={locale} />
+  <Footer locale="nl" />
 </Base>
+
+<script is:inline>
+  if (location.hostname.endsWith('russchenmedia.com')) {
+    document.documentElement.lang = 'en';
+    document.querySelectorAll('[data-en]').forEach((el) => {
+      el.textContent = el.getAttribute('data-en');
+    });
+  }
+</script>
 
 <style>
   .notfound {
