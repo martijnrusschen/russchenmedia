@@ -14,5 +14,5 @@ export const site = {
   },
   // Cloudflare Web Analytics beacon token. Leave empty to disable the beacon
   // (the site is also eligible for Cloudflare's automatic, codeless setup).
-  cloudflareAnalyticsToken: '',
+  cloudflareAnalyticsToken: '6240093bed2f4e2a998e04f9a633a9e4',
 } as const;
