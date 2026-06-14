@@ -79,6 +79,13 @@ const sections = [
   document.querySelectorAll('.nav__panel a').forEach((a) =>
     a.addEventListener('click', () => a.closest('details')?.removeAttribute('open'))
   );
+
+  // Follow the device theme live, unless the visitor picked a theme manually.
+  matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
+    if (localStorage.getItem('theme')) return;
+    root.dataset.theme = e.matches ? 'dark' : 'light';
+    if (meta) meta.setAttribute('content', e.matches ? '#0d1117' : '#ffffff');
+  });
 </script>
 
 <style>
