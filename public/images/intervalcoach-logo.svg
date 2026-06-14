@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 128 128" fill="none">
+  <!-- Background circle -->
+  <circle cx="64" cy="64" r="60" fill="#0a0a0a"/>
+  <circle cx="64" cy="64" r="58" stroke="#262626" stroke-width="2"/>
+
+  <!-- Interval bars representing training zones -->
+  <g transform="translate(24, 32)">
+    <!-- Zone 1 - Recovery (green) -->
+    <rect x="0" y="48" width="12" height="16" rx="2" fill="#22c55e"/>
+
+    <!-- Zone 2 - Endurance (blue) -->
+    <rect x="16" y="40" width="12" height="24" rx="2" fill="#3b82f6"/>
+
+    <!-- Zone 3 - Tempo (yellow) -->
+    <rect x="32" y="28" width="12" height="36" rx="2" fill="#eab308"/>
+
+    <!-- Zone 4 - Threshold (orange) -->
+    <rect x="48" y="16" width="12" height="48" rx="2" fill="#f97316"/>
+
+    <!-- Zone 5 - VO2max (red) -->
+    <rect x="64" y="4" width="12" height="60" rx="2" fill="#ef4444"/>
+  </g>
+
+</svg>
