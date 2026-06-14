@@ -17,5 +17,5 @@ export const site = {
   cloudflareAnalyticsToken: '6240093bed2f4e2a998e04f9a633a9e4',
   // Web3Forms access key for the contact form. Leave empty to fall back to a
   // plain mailto button. Get a free key at https://web3forms.com.
-  web3formsKey: '',
+  web3formsKey: 'a3c26d12-234b-4384-9640-122992b0b4e1',
 } as const;
