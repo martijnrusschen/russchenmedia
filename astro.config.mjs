@@ -16,9 +16,13 @@ export default defineConfig({
   },
   integrations: [
     sitemap({
-      i18n: {
-        defaultLocale: 'nl',
-        locales: { nl: 'nl', en: 'en' },
+      // English is canonical on russchenmedia.com, so map the built /en/ URL
+      // to its .com address in the sitemap.
+      serialize(item) {
+        if (item.url === 'https://russchenmedia.nl/en/') {
+          return { ...item, url: 'https://russchenmedia.com/' };
+        }
+        return item;
       },
     }),
   ],
