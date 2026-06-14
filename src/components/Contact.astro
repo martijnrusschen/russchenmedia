@@ -8,6 +8,8 @@ interface Props {
 }
 const { locale } = Astro.props;
 const t = useUI(locale);
+const f = t.contact.form;
+const hasForm = site.web3formsKey.length > 0;
 ---
 
 <section class="section" id="contact">
@@ -15,12 +17,86 @@ const t = useUI(locale);
     <p class="eyebrow">{t.contact.eyebrow}</p>
     <h2 class="section-title">{t.contact.title}</h2>
     <p class="section-lead contact__lead">{t.contact.lead}</p>
-    <div class="contact__actions">
-      <a class="btn btn--primary" href={`mailto:${site.email}`}>{site.email}</a>
-      <a class="btn btn--ghost" href={`tel:${site.phoneHref}`}>{site.phone}</a>
-    </div>
+
+    {
+      hasForm ? (
+        <form
+          class="cform"
+          id="contact-form"
+          data-success={f.success}
+          data-error={f.error}
+        >
+          <input type="hidden" name="access_key" value={site.web3formsKey} />
+          <input type="checkbox" name="botcheck" class="cform__hp" tabindex="-1" autocomplete="off" />
+          <div class="cform__row">
+            <label class="cform__field">
+              <span>{f.name}</span>
+              <input type="text" name="name" required autocomplete="name" />
+            </label>
+            <label class="cform__field">
+              <span>{f.email}</span>
+              <input type="email" name="email" required autocomplete="email" />
+            </label>
+          </div>
+          <label class="cform__field">
+            <span>{f.message}</span>
+            <textarea name="message" rows="5" required />
+          </label>
+          <button class="btn btn--primary" type="submit" data-label={f.send} data-sending={f.sending}>
+            {f.send}
+          </button>
+          <p class="cform__status" role="status" aria-live="polite" />
+        </form>
+      ) : (
+        <div class="contact__actions">
+          <a class="btn btn--primary" href={`mailto:${site.email}`}>{site.email}</a>
+          <a class="btn btn--ghost" href={`tel:${site.phoneHref}`}>{site.phone}</a>
+        </div>
+      )
+    }
   </div>
 </section>
+
+{
+  hasForm && (
+    <script>
+      const form = document.getElementById('contact-form') as HTMLFormElement | null;
+      if (form) {
+        form.addEventListener('submit', async (e) => {
+          e.preventDefault();
+          const btn = form.querySelector('button[type="submit"]') as HTMLButtonElement;
+          const status = form.querySelector('.cform__status') as HTMLElement;
+          const label = btn.dataset.label ?? '';
+          btn.disabled = true;
+          btn.textContent = btn.dataset.sending ?? '';
+          status.textContent = '';
+          status.className = 'cform__status';
+          try {
+            const res = await fetch('https://api.web3forms.com/submit', {
+              method: 'POST',
+              headers: { Accept: 'application/json' },
+              body: new FormData(form),
+            });
+            const data = await res.json();
+            if (data.success) {
+              status.textContent = form.dataset.success ?? '';
+              status.classList.add('is-ok');
+              form.reset();
+            } else {
+              status.textContent = form.dataset.error ?? '';
+              status.classList.add('is-err');
+            }
+          } catch (err) {
+            status.textContent = form.dataset.error ?? '';
+            status.classList.add('is-err');
+          }
+          btn.disabled = false;
+          btn.textContent = label;
+        });
+      }
+    </script>
+  )
+}
 
 <style>
   .contact {
@@ -40,5 +116,84 @@ const t = useUI(locale);
     gap: 12px;
     flex-wrap: wrap;
     justify-content: center;
+  }
+
+  .cform {
+    margin-top: 32px;
+    width: 100%;
+    max-width: 560px;
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .cform__row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  .cform__field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+  }
+
+  .cform__field span {
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .cform__field input,
+  .cform__field textarea {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid var(--color-border);
+    border-radius: 10px;
+    background: var(--color-card);
+    color: var(--color-text);
+    font: inherit;
+    transition: border-color 0.15s ease;
+  }
+
+  .cform__field input:focus,
+  .cform__field textarea:focus {
+    outline: none;
+    border-color: var(--color-accent);
+  }
+
+  .cform__field textarea {
+    resize: vertical;
+  }
+
+  .cform__hp {
+    position: absolute;
+    left: -9999px;
+  }
+
+  .cform button {
+    justify-content: center;
+  }
+
+  .cform__status {
+    margin: 0;
+    font-size: 0.95rem;
+    min-height: 1.2em;
+  }
+
+  .cform__status.is-ok {
+    color: #16a34a;
+  }
+
+  .cform__status.is-err {
+    color: #dc2626;
+  }
+
+  @media (max-width: 540px) {
+    .cform__row {
+      grid-template-columns: 1fr;
+    }
   }
 </style>

@@ -15,4 +15,7 @@ export const site = {
   // Cloudflare Web Analytics beacon token. Leave empty to disable the beacon
   // (the site is also eligible for Cloudflare's automatic, codeless setup).
   cloudflareAnalyticsToken: '6240093bed2f4e2a998e04f9a633a9e4',
+  // Web3Forms access key for the contact form. Leave empty to fall back to a
+  // plain mailto button. Get a free key at https://web3forms.com.
+  web3formsKey: '',
 } as const;

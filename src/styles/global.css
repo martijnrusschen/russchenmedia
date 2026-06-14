@@ -1,19 +1,33 @@
 :root {
   --color-bg: #ffffff;
   --color-surface: #f6f8fb;
+  --color-card: #ffffff;
   --color-text: #11181c;
   --color-muted: #5b6770;
   --color-border: #e4e8ec;
   --color-accent: #2563eb;
   --color-accent-dark: #1d4ed8;
+  --nav-bg: rgba(255, 255, 255, 0.85);
 
   --font-sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Helvetica, Arial, sans-serif;
 
   --maxw: 1080px;
   --radius: 14px;
-  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04),
-    0 8px 24px rgba(16, 24, 40, 0.06);
+  --shadow: 0 1px 2px rgba(16, 24, 40, 0.04), 0 8px 24px rgba(16, 24, 40, 0.06);
+}
+
+:root[data-theme="dark"] {
+  --color-bg: #0d1117;
+  --color-surface: #11161d;
+  --color-card: #1a212b;
+  --color-text: #e6edf3;
+  --color-muted: #9aa7b2;
+  --color-border: #2a323c;
+  --color-accent: #4f8df0;
+  --color-accent-dark: #6ea4f5;
+  --nav-bg: rgba(13, 17, 23, 0.85);
+  --shadow: 0 1px 2px rgba(0, 0, 0, 0.3), 0 8px 24px rgba(0, 0, 0, 0.45);
 }
 
 *,
@@ -36,6 +50,7 @@ body {
   line-height: 1.65;
   -webkit-font-smoothing: antialiased;
   text-rendering: optimizeLegibility;
+  transition: background-color 0.2s ease, color 0.2s ease;
 }
 
 h1,
@@ -62,6 +77,11 @@ a:hover {
 img {
   max-width: 100%;
   display: block;
+}
+
+/* Anchor targets clear the sticky nav. */
+[id] {
+  scroll-margin-top: 84px;
 }
 
 .container {
@@ -109,6 +129,7 @@ img {
   font-weight: 600;
   font-size: 0.97rem;
   border: 1px solid transparent;
+  cursor: pointer;
   transition: background 0.15s ease, color 0.15s ease, border-color 0.15s ease,
     transform 0.15s ease;
 }
@@ -130,12 +151,36 @@ img {
 .btn--ghost {
   border-color: var(--color-border);
   color: var(--color-text);
-  background: #fff;
+  background: var(--color-card);
 }
 
 .btn--ghost:hover {
   border-color: var(--color-accent);
   color: var(--color-accent);
+}
+
+/* Skip to content (visible on focus). */
+.skip-link {
+  position: absolute;
+  left: 12px;
+  top: -60px;
+  z-index: 100;
+  background: var(--color-accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  font-weight: 600;
+  transition: top 0.15s ease;
+}
+
+.skip-link:focus {
+  top: 12px;
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
 }
 
 @media (max-width: 640px) {
@@ -144,5 +189,18 @@ img {
   }
   .section {
     padding-block: 52px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
