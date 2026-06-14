@@ -65,7 +65,26 @@ const cfToken = site.cloudflareAnalyticsToken;
     <link rel="canonical" href={canonical} />
     {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
     <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(logical, defaultLocale), site.url).href} />
+
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta name="theme-color" content="#ffffff" />
+
+    {/* Resolve theme before paint to avoid a flash. */}
+    <script is:inline>
+      (() => {
+        try {
+          const stored = localStorage.getItem('theme');
+          const dark = stored ? stored === 'dark' : matchMedia('(prefers-color-scheme: dark)').matches;
+          document.documentElement.dataset.theme = dark ? 'dark' : 'light';
+          if (dark) {
+            const m = document.querySelector('meta[name="theme-color"]');
+            if (m) m.setAttribute('content', '#0d1117');
+          }
+        } catch (e) {}
+      })();
+    </script>
 
     <meta property="og:type" content="website" />
     <meta property="og:title" content={pageTitle} />
@@ -92,6 +111,7 @@ const cfToken = site.cloudflareAnalyticsToken;
     <meta name="generator" content={Astro.generator} />
   </head>
   <body>
+    <a class="skip-link" href="#main">{t.a11y.skip}</a>
     <slot />
   </body>
 </html>

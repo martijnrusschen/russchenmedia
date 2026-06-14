@@ -8,7 +8,16 @@ export interface ServiceCopy {
 
 export interface UICopy {
   meta: { title: string; description: string };
-  nav: { services: string; work: string; hosting: string; about: string; contact: string; cta: string };
+  a11y: { skip: string };
+  nav: {
+    services: string;
+    work: string;
+    hosting: string;
+    about: string;
+    contact: string;
+    cta: string;
+    toggleTheme: string;
+  };
   hero: { tagline: string; intro: string; ctaPrimary: string; ctaSecondary: string };
   services: { eyebrow: string; title: string; lead: string; items: ServiceCopy[] };
   about: {
@@ -20,7 +29,20 @@ export interface UICopy {
   };
   work: { eyebrow: string; title: string; roleLabel: string; visit: string };
   hosting: { eyebrow: string; title: string; lead: string };
-  contact: { eyebrow: string; title: string; lead: string };
+  contact: {
+    eyebrow: string;
+    title: string;
+    lead: string;
+    form: {
+      name: string;
+      email: string;
+      message: string;
+      send: string;
+      sending: string;
+      success: string;
+      error: string;
+    };
+  };
   footer: { backToTop: string };
   notFound: { code: string; title: string; lead: string; home: string };
 }
@@ -32,6 +54,7 @@ export const ui: Record<Locale, UICopy> = {
       description:
         'Russchen Media bouwt en beheert websites en apps, en verzorgt betrouwbare webhosting.',
     },
+    a11y: { skip: 'Naar inhoud' },
     nav: {
       services: 'Diensten',
       work: 'Werk',
@@ -39,6 +62,7 @@ export const ui: Record<Locale, UICopy> = {
       about: 'Over mij',
       contact: 'Contact',
       cta: 'Neem contact op',
+      toggleTheme: 'Wissel thema',
     },
     hero: {
       tagline: 'Websites, apps & webhosting.',
@@ -99,6 +123,15 @@ export const ui: Record<Locale, UICopy> = {
       eyebrow: 'Samenwerken?',
       title: 'Een nieuw project of een site die beter kan?',
       lead: 'Stuur een bericht. Ik denk graag mee over wat het beste werkt.',
+      form: {
+        name: 'Naam',
+        email: 'E-mailadres',
+        message: 'Je bericht',
+        send: 'Verstuur bericht',
+        sending: 'Versturen...',
+        success: 'Bedankt! Je bericht is verzonden, ik reageer snel.',
+        error: 'Er ging iets mis. Mail me gerust direct.',
+      },
     },
     footer: { backToTop: 'Terug naar boven' },
     notFound: {
@@ -115,6 +148,7 @@ export const ui: Record<Locale, UICopy> = {
       description:
         'Russchen Media builds and maintains websites and apps, and provides reliable web hosting.',
     },
+    a11y: { skip: 'Skip to content' },
     nav: {
       services: 'Services',
       work: 'Work',
@@ -122,6 +156,7 @@ export const ui: Record<Locale, UICopy> = {
       about: 'About',
       contact: 'Contact',
       cta: 'Get in touch',
+      toggleTheme: 'Toggle theme',
     },
     hero: {
       tagline: 'Websites, apps & web hosting.',
@@ -182,6 +217,15 @@ export const ui: Record<Locale, UICopy> = {
       eyebrow: "Let's work together",
       title: 'A new project or a site that could be better?',
       lead: "Send a message. I'm happy to think along about what works best.",
+      form: {
+        name: 'Name',
+        email: 'Email address',
+        message: 'Your message',
+        send: 'Send message',
+        sending: 'Sending...',
+        success: "Thanks! Your message has been sent, I'll reply soon.",
+        error: 'Something went wrong. Feel free to email me directly.',
+      },
     },
     footer: { backToTop: 'Back to top' },
     notFound: {
