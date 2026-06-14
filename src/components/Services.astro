@@ -1,0 +1,87 @@
+---
+import { services } from '../data/services';
+import Icon from './Icon.astro';
+---
+
+<section class="section" id="diensten">
+  <div class="container">
+    <p class="eyebrow">Wat ik doe</p>
+    <h2 class="section-title">Van eerste idee tot draaiende site.</h2>
+    <p class="section-lead">
+      Eén aanspreekpunt voor ontwerp, ontwikkeling én beheer, zodat je site
+      snel, veilig en up-to-date blijft.
+    </p>
+
+    <ul class="services">
+      {
+        services.map((service) => (
+          <li class="service">
+            <span class="service__icon">
+              <Icon name={service.icon as 'code' | 'app' | 'server'} />
+            </span>
+            <h3 class="service__title">{service.title}</h3>
+            <p class="service__desc">{service.description}</p>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .services {
+    list-style: none;
+    margin: 44px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+  }
+
+  .service {
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    padding: 28px;
+    transition: box-shadow 0.18s ease, transform 0.18s ease;
+  }
+
+  .service:hover {
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .service__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 46px;
+    height: 46px;
+    border-radius: 12px;
+    background: rgba(37, 99, 235, 0.1);
+    color: var(--color-accent);
+    margin-bottom: 18px;
+  }
+
+  .service__icon :global(svg) {
+    width: 24px;
+    height: 24px;
+  }
+
+  .service__title {
+    font-size: 1.2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+
+  .service__desc {
+    color: var(--color-muted);
+    font-size: 0.98rem;
+  }
+
+  @media (max-width: 860px) {
+    .services {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

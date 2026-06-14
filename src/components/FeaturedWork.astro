@@ -1,0 +1,141 @@
+---
+import { projects } from '../data/projects';
+
+const featured = projects.find((p) => p.featured) ?? projects[0];
+const host = featured ? new URL(featured.url).host : '';
+---
+
+{
+  featured && (
+    <section class="section" id="werk">
+      <div class="container">
+        <p class="eyebrow">Uitgelicht werk</p>
+        <h2 class="section-title">Recente projecten.</h2>
+
+        <article class="feature">
+          <a class="feature__media" href={featured.url} target="_blank" rel="noopener">
+            <img
+              src={featured.image}
+              alt={featured.title}
+              width="1776"
+              height="1634"
+              loading="lazy"
+            />
+          </a>
+          <div class="feature__body">
+            {
+              featured.logo && (
+                <img
+                  class="feature__logo"
+                  src={featured.logo}
+                  alt={`${featured.title} logo`}
+                  width="52"
+                  height="52"
+                  loading="lazy"
+                />
+              )
+            }
+            <h3 class="feature__title">{featured.title}</h3>
+            <p class="feature__subtitle">{featured.subtitle}</p>
+            <p class="feature__desc">{featured.description}</p>
+            <dl class="feature__meta">
+              <dt>Rol</dt>
+              <dd>{featured.role}</dd>
+            </dl>
+            <a class="btn btn--primary" href={featured.url} target="_blank" rel="noopener">
+              Bekijk {host} →
+            </a>
+          </div>
+        </article>
+      </div>
+    </section>
+  )
+}
+
+<style>
+  .feature {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 0;
+    background: #fff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+
+  .feature__media {
+    display: block;
+    overflow: hidden;
+    background: #0a0e13;
+  }
+
+  .feature__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: top center;
+    transition: transform 0.4s ease;
+  }
+
+  .feature__media:hover img {
+    transform: scale(1.02);
+  }
+
+  .feature__body {
+    padding: 36px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .feature__logo {
+    width: 52px;
+    height: 52px;
+    border-radius: 14px;
+    margin-bottom: 16px;
+  }
+
+  .feature__title {
+    font-size: 1.6rem;
+    font-weight: 800;
+  }
+
+  .feature__subtitle {
+    margin-top: 6px;
+    color: var(--color-accent);
+    font-weight: 600;
+  }
+
+  .feature__desc {
+    margin-top: 16px;
+    color: var(--color-muted);
+  }
+
+  .feature__meta {
+    margin: 20px 0 24px;
+  }
+
+  .feature__meta dt {
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.72rem;
+    font-weight: 600;
+    color: var(--color-muted);
+  }
+
+  .feature__meta dd {
+    margin: 2px 0 0;
+    font-weight: 600;
+  }
+
+  @media (max-width: 860px) {
+    .feature {
+      grid-template-columns: 1fr;
+    }
+    .feature__media img {
+      aspect-ratio: 16 / 10;
+    }
+  }
+</style>

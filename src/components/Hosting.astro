@@ -1,0 +1,87 @@
+---
+import { clients } from '../data/clients';
+---
+
+<section class="section section--surface" id="hosting">
+  <div class="container">
+    <div class="hosting__head">
+      <p class="eyebrow">Hosting & beheer</p>
+      <h2 class="section-title">Zorgeloos gehost en onderhouden.</h2>
+      <p class="section-lead">
+        Een greep uit de sites die ik bouw, host en up-to-date houd, van
+        horeca tot sportevenementen.
+      </p>
+    </div>
+
+    <ul class="clients">
+      {
+        clients.map((client) => (
+          <li class="client">
+            <a href={`https://${client.domain}`} target="_blank" rel="noopener">
+              <span class="client__name">{client.name}</span>
+              <span class="client__domain">{client.domain}</span>
+              <span class="client__sector">{client.sector}</span>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
+
+<style>
+  .clients {
+    list-style: none;
+    margin: 40px 0 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+
+  .client a {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    height: 100%;
+    padding: 20px 22px;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius);
+    background: #fff;
+    color: var(--color-text);
+    transition: border-color 0.16s ease, box-shadow 0.16s ease,
+      transform 0.16s ease;
+  }
+
+  .client a:hover {
+    border-color: var(--color-accent);
+    box-shadow: var(--shadow);
+    transform: translateY(-2px);
+  }
+
+  .client__name {
+    font-weight: 700;
+  }
+
+  .client__domain {
+    color: var(--color-accent);
+    font-size: 0.92rem;
+  }
+
+  .client__sector {
+    color: var(--color-muted);
+    font-size: 0.84rem;
+  }
+
+  @media (max-width: 860px) {
+    .clients {
+      grid-template-columns: 1fr 1fr;
+    }
+  }
+
+  @media (max-width: 540px) {
+    .clients {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
