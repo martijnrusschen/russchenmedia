@@ -41,6 +41,18 @@ Most copy lives in `src/data/`:
 
 ## Deployment
 
-Pushing to `main` triggers the GitHub Actions workflow, which builds the site
-and publishes `dist/` to GitHub Pages. In the repo: Settings → Pages → Source =
-"GitHub Actions" must be enabled once.
+Hosted on **Cloudflare Pages** (build from Git): build command `npm run build`,
+output directory `dist`. Config lives in `wrangler.toml`; security and cache
+headers in `public/_headers`. The Node version comes from `.nvmrc`.
+
+One-time setup in the Cloudflare dashboard:
+
+1. Workers & Pages → Create → Pages → Connect to Git → this repo.
+2. Production branch `master`, framework preset **Astro** (build `npm run build`,
+   output `dist`).
+3. After the first deploy: Custom domains → add `russchenmedia.nl` (Cloudflare
+   updates DNS automatically).
+
+A GitHub Actions workflow (`.github/workflows/deploy.yml`) can still publish to
+GitHub Pages as a fallback; remove it once the Cloudflare Pages cutover is
+confirmed.
