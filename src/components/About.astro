@@ -1,61 +1,39 @@
 ---
+import { Image } from 'astro:assets';
+import type { Locale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 import { site } from '../data/site';
+import martijn from '../assets/martijn.jpg';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
 ---
 
 <section class="section section--surface" id="over">
   <div class="container about">
     <div class="about__text">
-      <p class="eyebrow">Over mij</p>
-      <h2 class="section-title">Sinds 2010 bouw ik aan het web.</h2>
-      <p class="about__p">
-        Ik ben Martijn Russchen. Wat in 2010 begon met videoproducties, is
-        uitgegroeid naar waar ik vandaag het liefst mee bezig ben: websites en
-        apps bouwen, en ze daarna betrouwbaar hosten en onderhouden.
-      </p>
-      <p class="about__p">
-        Ik draag al jaren bij aan open source, waaronder <a
-          href="https://github.com/Hacker0x01/react-datepicker"
-          target="_blank"
-          rel="noopener">react-datepicker</a
-        > dat wereldwijd door talloze ontwikkelaars wordt gebruikt. Die ervaring
-        breng ik mee naar elk project. <a
-          href="https://intervalcoach.app"
-          target="_blank"
-          rel="noopener">IntervalCoach</a
-        >, mijn eigen AI-trainingsplatform, ontstond uit mijn passie voor
-        wielrennen en data en laat zien hoe ik AI inzet in echte producten.
-      </p>
-      <p class="about__p">
-        Beveiliging is mijn vak: met een achtergrond in security en jarenlange
-        WordPress-ervaring houd ik sites veilig, snel en up-to-date.
-      </p>
-      <p class="about__p">
-        Je werkt rechtstreeks met mij samen: één vast aanspreekpunt dat
-        meedenkt, van eerste idee tot livegang en alles daarna.
-      </p>
-      <a class="btn btn--primary" href={`mailto:${site.email}`}>Maak kennis</a>
+      <p class="eyebrow">{t.about.eyebrow}</p>
+      <h2 class="section-title">{t.about.title}</h2>
+      {t.about.paragraphs.map((p) => <p class="about__p" set:html={p} />)}
+      <a class="btn btn--primary" href={`mailto:${site.email}`}>{t.about.cta}</a>
     </div>
 
     <aside class="about__card">
-      <img
-        class="about__photo"
-        src="/images/martijn.jpg"
-        alt="Martijn Russchen"
-        width="800"
-        height="800"
-        loading="lazy"
-      />
+      <Image class="about__photo" src={martijn} alt="Martijn Russchen" width={420} densities={[1, 2]} />
       <dl class="about__stats">
         <div class="about__stat">
-          <dt>Actief sinds</dt>
-          <dd>2010</dd>
+          <dt>{t.about.stats.activeSince}</dt>
+          <dd>{site.activeSince}</dd>
         </div>
         <div class="about__stat">
-          <dt>Ervaring</dt>
-          <dd>15+ jaar</dd>
+          <dt>{t.about.stats.experience}</dt>
+          <dd>{site.experienceYears} {locale === 'nl' ? 'jaar' : 'years'}</dd>
         </div>
         <div class="about__stat">
-          <dt>Gevestigd in</dt>
+          <dt>{t.about.stats.basedIn}</dt>
           <dd>{site.location}</dd>
         </div>
       </dl>

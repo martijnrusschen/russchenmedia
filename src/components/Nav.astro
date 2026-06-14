@@ -1,0 +1,140 @@
+---
+import type { Locale } from '../i18n/config';
+import { locales, localeNames, homePath } from '../i18n/config';
+import { useUI } from '../i18n/ui';
+import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
+const home = homePath(locale);
+---
+
+<header class="nav">
+  <div class="container nav__inner">
+    <a class="nav__brand" href={home} aria-label={site.name}>
+      <img src="/images/russchenmedia-logo.png" alt={site.name} width="40" height="36" />
+      <span>{site.name}</span>
+    </a>
+
+    <nav class="nav__links" aria-label="Hoofdmenu">
+      <a href="#diensten">{t.nav.services}</a>
+      <a href="#werk">{t.nav.work}</a>
+      <a href="#hosting">{t.nav.hosting}</a>
+      <a href="#over">{t.nav.about}</a>
+    </nav>
+
+    <div class="nav__right">
+      <div class="nav__lang" role="group" aria-label="Language">
+        {
+          locales.map((l) => (
+            <a
+              href={homePath(l)}
+              class={`nav__lang-link${l === locale ? ' is-active' : ''}`}
+              aria-current={l === locale ? 'true' : undefined}
+              hreflang={l}
+              title={localeNames[l]}
+            >
+              {l.toUpperCase()}
+            </a>
+          ))
+        }
+      </div>
+      <a class="btn btn--primary nav__cta" href={`mailto:${site.email}`}>{t.nav.cta}</a>
+    </div>
+  </div>
+</header>
+
+<style>
+  .nav {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: saturate(150%) blur(10px);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  .nav__inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    height: 64px;
+  }
+
+  .nav__brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    color: var(--color-text);
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+
+  .nav__brand img {
+    width: 32px;
+    height: auto;
+  }
+
+  .nav__links {
+    display: flex;
+    gap: 26px;
+  }
+
+  .nav__links a {
+    color: var(--color-muted);
+    font-size: 0.95rem;
+    font-weight: 500;
+  }
+
+  .nav__links a:hover {
+    color: var(--color-text);
+  }
+
+  .nav__right {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+
+  .nav__lang {
+    display: inline-flex;
+    gap: 2px;
+    font-size: 0.8rem;
+    font-weight: 600;
+  }
+
+  .nav__lang-link {
+    color: var(--color-muted);
+    padding: 4px 6px;
+    border-radius: 6px;
+  }
+
+  .nav__lang-link.is-active {
+    color: var(--color-accent);
+    background: rgba(37, 99, 235, 0.1);
+  }
+
+  .nav__cta {
+    padding: 9px 18px;
+    font-size: 0.9rem;
+  }
+
+  @media (max-width: 820px) {
+    .nav__links {
+      display: none;
+    }
+    .nav__brand span {
+      display: none;
+    }
+  }
+
+  @media (max-width: 480px) {
+    .nav__cta {
+      display: none;
+    }
+  }
+</style>

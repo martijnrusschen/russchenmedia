@@ -1,47 +1,37 @@
 ---
+import type { Locale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 import { site } from '../data/site';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
 ---
 
-<header class="hero">
+<section class="hero">
   <div class="container hero__inner">
-    <img
-      class="hero__logo"
-      src="/images/russchenmedia-logo.png"
-      alt="Russchen Media"
-      width="96"
-      height="86"
-    />
-    <h1 class="hero__title">{site.tagline}</h1>
-    <p class="hero__intro">{site.intro}</p>
+    <h1 class="hero__title">{t.hero.tagline}</h1>
+    <p class="hero__intro">{t.hero.intro}</p>
     <div class="hero__actions">
-      <a class="btn btn--primary" href={`mailto:${site.email}`}>Neem contact op</a>
-      <a class="btn btn--ghost" href="#werk">Bekijk werk</a>
+      <a class="btn btn--primary" href={`mailto:${site.email}`}>{t.hero.ctaPrimary}</a>
+      <a class="btn btn--ghost" href="#werk">{t.hero.ctaSecondary}</a>
     </div>
   </div>
-</header>
+</section>
 
 <style>
   .hero {
-    padding-block: 88px 64px;
+    padding-block: 96px 72px;
     text-align: center;
-    background:
-      radial-gradient(
-        60% 120% at 50% 0%,
-        rgba(37, 99, 235, 0.08),
-        transparent 70%
-      );
+    background: radial-gradient(60% 120% at 50% 0%, rgba(37, 99, 235, 0.08), transparent 70%);
   }
 
   .hero__inner {
     display: flex;
     flex-direction: column;
     align-items: center;
-  }
-
-  .hero__logo {
-    width: 96px;
-    height: auto;
-    margin-bottom: 28px;
   }
 
   .hero__title {
@@ -67,7 +57,7 @@ import { site } from '../data/site';
 
   @media (max-width: 640px) {
     .hero {
-      padding-block: 56px 40px;
+      padding-block: 56px 44px;
     }
   }
 </style>

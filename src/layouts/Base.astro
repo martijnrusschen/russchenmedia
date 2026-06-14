@@ -1,35 +1,93 @@
 ---
 import '../styles/global.css';
 import { site } from '../data/site';
+import type { Locale } from '../i18n/config';
+import { locales, localizedPath, defaultLocale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 
 interface Props {
+  locale: Locale;
   title?: string;
   description?: string;
 }
 
-const { title = site.title, description = site.description } = Astro.props;
+const { locale, title, description } = Astro.props;
+const t = useUI(locale);
+const pageTitle = title ?? t.meta.title;
+const pageDesc = description ?? t.meta.description;
+
 const canonical = new URL(Astro.url.pathname, site.url).href;
-const ogImage = new URL('/images/intervalcoach.png', site.url).href;
+const ogImage = new URL('/images/og-russchenmedia.png', site.url).href;
+
+// Build hreflang alternates from the locale-agnostic path.
+const segs = Astro.url.pathname.split('/').filter(Boolean);
+if ((locales as readonly string[]).includes(segs[0])) segs.shift();
+const logical = '/' + segs.join('/');
+const alternates = locales.map((l) => ({
+  hreflang: l,
+  href: new URL(localizedPath(logical, l), site.url).href,
+}));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'ProfessionalService',
+  name: site.name,
+  url: site.url,
+  image: ogImage,
+  email: site.email,
+  telephone: site.phoneHref,
+  description: pageDesc,
+  address: {
+    '@type': 'PostalAddress',
+    addressLocality: site.location,
+    addressCountry: 'NL',
+  },
+  areaServed: 'NL',
+  founder: {
+    '@type': 'Person',
+    name: 'Martijn Russchen',
+    sameAs: [site.social.github, site.social.personal],
+  },
+  sameAs: [site.social.github, site.social.personal],
+  knowsAbout: ['Web development', 'App development', 'AI', 'WordPress', 'Web hosting', 'Security'],
+};
+
+const cfToken = site.cloudflareAnalyticsToken;
 ---
 
 <!doctype html>
-<html lang="nl">
+<html lang={locale}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{title}</title>
-    <meta name="description" content={description} />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDesc} />
     <link rel="canonical" href={canonical} />
+    {alternates.map((a) => <link rel="alternate" hreflang={a.hreflang} href={a.href} />)}
+    <link rel="alternate" hreflang="x-default" href={new URL(localizedPath(logical, defaultLocale), site.url).href} />
     <link rel="icon" type="image/x-icon" href="/favicon.ico" />
 
-    <!-- Open Graph / Twitter -->
     <meta property="og:type" content="website" />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDesc} />
     <meta property="og:url" content={canonical} />
     <meta property="og:image" content={ogImage} />
+    <meta property="og:locale" content={locale === 'nl' ? 'nl_NL' : 'en_US'} />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content={site.twitter} />
+
+    <script type="application/ld+json" is:inline set:html={JSON.stringify(jsonLd)} />
+
+    {
+      cfToken && (
+        <script
+          is:inline
+          defer
+          src="https://static.cloudflareinsights.com/beacon.min.js"
+          data-cf-beacon={`{"token": "${cfToken}"}`}
+        />
+      )
+    }
 
     <meta name="generator" content={Astro.generator} />
   </head>

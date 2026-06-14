@@ -1,23 +1,27 @@
 ---
-import { services } from '../data/services';
+import type { Locale } from '../i18n/config';
+import { useUI } from '../i18n/ui';
 import Icon from './Icon.astro';
+
+interface Props {
+  locale: Locale;
+}
+const { locale } = Astro.props;
+const t = useUI(locale);
 ---
 
 <section class="section" id="diensten">
   <div class="container">
-    <p class="eyebrow">Wat ik doe</p>
-    <h2 class="section-title">Van eerste idee tot draaiende site.</h2>
-    <p class="section-lead">
-      Eén aanspreekpunt voor ontwerp, ontwikkeling én beheer, zodat je site
-      snel, veilig en up-to-date blijft.
-    </p>
+    <p class="eyebrow">{t.services.eyebrow}</p>
+    <h2 class="section-title">{t.services.title}</h2>
+    <p class="section-lead">{t.services.lead}</p>
 
     <ul class="services">
       {
-        services.map((service) => (
+        t.services.items.map((service) => (
           <li class="service">
             <span class="service__icon">
-              <Icon name={service.icon as 'code' | 'app' | 'server'} />
+              <Icon name={service.icon} />
             </span>
             <h3 class="service__title">{service.title}</h3>
             <p class="service__desc">{service.description}</p>
