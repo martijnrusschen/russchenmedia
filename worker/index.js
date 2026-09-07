@@ -7,6 +7,7 @@
  * each language has a single canonical address.
  */
 const COM = 'https://russchenmedia.com';
+const NL = 'https://russchenmedia.nl';
 
 // Shared, non-localized files that must be served as-is on every host.
 function isSharedAsset(pathname) {
@@ -29,6 +30,17 @@ export default {
     const host = url.hostname;
     const isCom = host === 'russchenmedia.com' || host === 'www.russchenmedia.com';
     const isNl = host === 'russchenmedia.nl' || host === 'www.russchenmedia.nl';
+
+    // One address per page: www.* collapses onto the apex domain, and page URLs
+    // always carry a trailing slash (matching the canonical tags and sitemap).
+    // Without this, Google indexes www.* and /path as alternates of each other.
+    if (isCom || isNl) {
+      const origin = isCom ? COM : NL;
+      const path = isSharedAsset(url.pathname) || url.pathname.endsWith('/') ? url.pathname : url.pathname + '/';
+      if (host.startsWith('www.') || path !== url.pathname) {
+        return Response.redirect(origin + path + url.search, 301);
+      }
+    }
 
     if (isCom) {
       // No /en/ duplicate on .com: strip the prefix.
