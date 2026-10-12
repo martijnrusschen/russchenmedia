@@ -3,6 +3,7 @@ import type { Locale } from '../i18n/config';
 import intervalcoach from '../assets/projects/intervalcoach.png';
 import pizzeria from '../assets/projects/pizzeria-italia.jpg';
 import amici from '../assets/projects/amici.jpg';
+import studioHoogeveen from '../assets/projects/studio-hoogeveen.jpg';
 
 type Localized = Record<Locale, string>;
 
@@ -35,6 +36,23 @@ export const projects: Project[] = [
     role: {
       nl: 'Concept, ontwerp & ontwikkeling',
       en: 'Concept, design & development',
+    },
+  },
+  {
+    title: 'Studio Hoogeveen',
+    url: 'https://studio-hoogeveen.nl',
+    image: studioHoogeveen,
+    subtitle: {
+      nl: 'Huisstijl en website voor een digitaliseringsstudio in Hoogeveen',
+      en: 'Brand identity and website for a digitising studio in Hoogeveen',
+    },
+    description: {
+      nl: 'Nieuwe huisstijl, flyer en website voor het digitaliseren van film, video en dia\'s. Met ruim 800 klantreacties, moderatie van nieuwe reacties per e-mail en sterke lokale vindbaarheid.',
+      en: 'New brand identity, flyer and website for digitising film, video and slides. With over 800 customer reviews, email moderation of new reviews and strong local search visibility.',
+    },
+    role: {
+      nl: 'Huisstijl, ontwerp, bouw & hosting',
+      en: 'Branding, design, build & hosting',
     },
   },
   {
